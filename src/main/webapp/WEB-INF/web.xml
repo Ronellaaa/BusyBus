@@ -4,4 +4,46 @@
 
 <web-app>
   <display-name>Archetype Created Web Application</display-name>
+
+  <servlet>
+    <servlet-name>AdminDashboardServlet</servlet-name>
+    <servlet-class>com.slit.bus.admin.AdminDashboardServlet</servlet-class>
+  </servlet>
+
+  <servlet-mapping>
+    <servlet-name>AdminDashboardServlet</servlet-name>
+    <url-pattern>/admin/dashboard</url-pattern>
+  </servlet-mapping>
+
+  <servlet>
+    <servlet-name>CustomerBookingServlet</servlet-name>
+    <servlet-class>com.slit.bus.customer.CustomerBookingServlet</servlet-class>
+  </servlet>
+
+  <servlet-mapping>
+    <servlet-name>CustomerBookingServlet</servlet-name>
+    <url-pattern>/customer/booking</url-pattern>
+  </servlet-mapping>
+
+  <servlet>
+    <servlet-name>BusScheduleServlet</servlet-name>
+    <servlet-class>com.slit.bus.BusScheduleServlet</servlet-class>
+  </servlet>
+
+  <servlet-mapping>
+    <servlet-name>BusScheduleServlet</servlet-name>
+    <url-pattern>/busOperator/schedule</url-pattern>
+  </servlet-mapping>
+
+
+  <servlet>
+    <servlet-name>PaymentProcessingServlet</servlet-name>
+    <servlet-class>com.slit.bus.payment.PaymentProcessingServlet</servlet-class>
+  </servlet>
+
+  <servlet-mapping>
+    <servlet-name>PaymentProcessingServlet</servlet-name>
+    <url-pattern>/payment/process</url-pattern>
+  </servlet-mapping>
+
 </web-app>
