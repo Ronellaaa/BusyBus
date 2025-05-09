@@ -10,7 +10,7 @@ public class DBConnection {
 	
 	private DBConnection () {
 		try {
-			String url = "jdbc:mysql://localhost:3306/busyBus";
+			String url = "jdbc:mysql://localhost:3306/bus_booking";
 			String userName = "root";
 			String password = "Oggy2012";
 			
