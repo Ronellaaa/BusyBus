@@ -10,9 +10,9 @@ public class DBConnection {
 	
 	private DBConnection () {
 		try {
-			String url = "jdbc:mysql://localhost:3306/bus_booking";
+			String url = "jdbc:mysql://127.0.0.1:3306/BusyBus";
 			String userName = "root";
-			String password = "Oggy2012";
+			String password = "OOP_WEBSITE1";
 			
 			Class.forName("com.mysql.cj.jdbc.Driver");
 			

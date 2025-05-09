@@ -1,0 +1,231 @@
+@charset "UTF-8";
+
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", "Inter", system-ui, sans-serif;
+}
+
+body {
+  background: url("../images/buses-bus-terminal-valletta.jpg") no-repeat center center fixed;
+  background-size: cover;
+  min-height: 100vh;
+  position: relative;
+  z-index: 0;
+}
+
+/* Dark overlay effect */
+body::before {
+  content: "";
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0, 0, 0, 0.4);
+  z-index: 0;
+}
+
+/* Bring content above overlay */
+body > * {
+  position: relative;
+  z-index: 1;
+}
+
+.table-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  padding-top: 20px;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+.l-title {
+  font-size: 28px;
+  font-weight: 700;
+  background: linear-gradient(90deg, #1a2542, #4169e1);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  margin: 0 auto;
+}
+
+.dashboard-btn {
+  background-color: #1a2542;
+  color: #fff;
+  padding: 8px 16px;
+  font-size: 14px;
+  border-radius: 10px;
+  text-decoration: none;
+  transition: background-color 0.2s ease;
+  margin-right: 10px;
+}
+
+.dashboard-btn:hover {
+  background-color: #4169e1;
+}
+
+.popup {
+  position: fixed;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #4CAF50;
+  color: white;
+  padding: 15px 25px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+  z-index: 1000;
+  animation: fadeOut 3s ease-in-out forwards;
+}
+
+@keyframes fadeOut {
+  0% { opacity: 1; }
+  70% { opacity: 1; }
+  100% { opacity: 0; display: none; }
+}
+
+.bus-table-container {
+  background-color: rgba(255, 255, 255, 0.85);
+  padding: 25px;
+  border-radius: 16px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  overflow-x: auto;
+}
+
+.bus-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+  color: #1a2542;
+}
+
+
+
+.bus-table thead {
+  background-color: #f0f5ff;
+}
+
+.bus-table th,
+.bus-table td {
+  padding: 12px 15px;
+  text-align: center;
+  border: 1px solid #ccc;
+  background-color: #fff;
+}
+
+.bus-table th {
+  font-weight: 600;
+  text-transform: uppercase;
+  font-size: 13px;
+  color: #555;
+}
+
+.status-active {
+  color: #28a745;
+  font-weight: 600;
+}
+
+.status-inactive {
+  color: #dc3545;
+  font-weight: 600;
+}
+
+.action-cell {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+}
+
+.inline-form {
+  display: inline;
+}
+
+.action-button {
+  background-color: #f0f0f0;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 14px;
+  padding: 6px 12px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.edit-btn:hover {
+  background-color: #d0e7ff;
+  border-color: #007bff;
+  color: #007bff;
+}
+
+.delete-btn:hover {
+  background-color: #ffe0e0;
+  border-color: #dc3545;
+  color: #dc3545;
+}
+
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 999;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.4);
+  justify-content: center;
+  align-items: center;
+  font-family: "Poppins", sans-serif;
+}
+
+.modal-content {
+  background-color: #ffffff;
+  padding: 30px 40px;
+  border-radius: 16px;
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  max-width: 380px;
+  width: 90%;
+  transition: transform 0.3s ease;
+}
+
+.modal-content p {
+  font-size: 16px;
+  margin-bottom: 25px;
+  color: #1a2542;
+  font-weight: 500;
+}
+
+.modal-content .action-button {
+  padding: 10px 20px;
+  border-radius: 8px;
+  font-size: 14px;
+  cursor: pointer;
+  margin: 0 8px;
+  transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.modal-content .delete-btn {
+  background-color: #dc3545;
+  color: #fff;
+  border: none;
+}
+
+.modal-content .delete-btn:hover {
+  background-color: #b02a37;
+  transform: scale(1.05);
+}
+
+.modal-content .cancel-btn {
+  background-color: #f0f0f0;
+  color: #333;
+  border: 1px solid #ccc;
+}
+
+.modal-content .cancel-btn:hover {
+  background-color: #c9c9c9;
+  transform: scale(1.05);
+}
+
+
