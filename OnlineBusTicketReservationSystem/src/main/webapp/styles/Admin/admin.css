@@ -1,0 +1,277 @@
+@charset "UTF-8";
+
+@import url("https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&family=Orbitron:wght@400..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+
+:root {
+  
+  --text-color: #ecf0f1;
+ 
+}
+
+body {
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  display: grid;
+  grid-template-columns: 250px 1fr;
+  min-height: 100vh;
+
+}
+
+.admin-sidebar {
+  background: linear-gradient(to right, #232526, #414345);
+  height: 100vh;
+  width: 250px;
+  padding: 1rem;
+  position: sticky;
+  top: 0;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 8px 8px 20px rgba(0, 0, 0, 0.25),
+  -8px -8px 20px rgba(255, 255, 255, 0.1);
+
+}
+
+.logo-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+.logo {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #f46b45;
+}
+
+.menu-icon {
+  background: none;
+  border: none;
+  color: var(--text-color);
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+.nav-links {
+  list-style: none;
+  padding: 0;
+}
+
+.nav-links li {
+  margin: 0.75rem 0;
+}
+
+.nav-links a,
+.dropdown-btn {
+  display: block;
+  color: var(--text-color);
+  padding: 0.75rem 1rem;
+  text-decoration: none;
+  border-radius: 8px;
+  transition: background 0.3s;
+  font-weight: 500;
+  font-size: 1rem;
+}
+
+.nav-links a:hover,
+.dropdown-btn:hover {
+  background: linear-gradient(to right, #f46b45, #eea849);
+}
+
+.nav-links li.active a {
+  background-color:#f46b45;
+  color: #2c3e50;
+  font-weight: 600;
+}
+
+.dropdown-btn {
+  background: none;
+  border: none;
+  width: 100%;
+  text-align: left;
+  cursor: pointer;
+  
+}
+
+.sub-menu {
+  display: none;
+  list-style: none;
+  padding-left: 1rem;
+
+}
+
+.dropdown:hover .sub-menu {
+  display: block;
+}
+.btn-text{
+  font-size: 1rem;
+  font-weight: 500;
+  font-family: Poppins;
+  color: var(--text-color);
+}
+.sub-menu li a {
+  font-size: .95rem;
+  color: var(--text-color);
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+}
+
+
+
+
+.nav-links svg {
+  min-width: 24px;
+  min-height: 24px;
+  fill: var(--text-color);
+  transition: fill 0.3s;
+  cursor: pointer;
+}
+
+.nav-links a:hover svg{
+  fill: #f12711;
+}
+
+
+main {
+  padding: 2.5rem;
+  background-image: url(../../assets/bg1.png);
+  border-image: fill 1 linear-gradient(hsla(0, 0%, 0%, 0.3), hsla(0, 0%, 0%, 0.3));
+  background-size: cover;
+  background-position: center;
+}
+
+
+.admin-home-text h1 {
+  font-size: 50px;
+  border-radius: 10px;
+  background: linear-gradient(to right, #e9c1a0, #50331b); 
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-align: center;
+  margin: 0px 0px;
+}
+
+.admin-home-text p {
+  font-size: 1rem;
+  color: white;
+  margin-bottom: 2rem;
+  text-align: center;
+  font-weight: 400;
+}
+
+.dashboard-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.card {
+  background-color: white;
+  padding: 1rem;
+  border-radius: 12px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.06);
+  font-weight: 500;
+  color: white;
+}
+
+.custCard{
+  background: linear-gradient(to right, #ff5f6d, #ffc371);
+  border-left: 5px solid rgb(241, 152, 100);
+ 
+}
+.paymentCard{
+  background: linear-gradient(to right, #ff5f6d, #ffc371);
+  border-left: 5px solid rgb(241, 152, 100);
+ 
+  
+}
+.busOpCard{
+  background: linear-gradient(to right, #ff5f6d, #ffc371);
+  border-left: 5px solid rgb(241, 152, 100);
+ 
+}
+.seatCard{
+  background: linear-gradient(to right, #ff5f6d, #ffc371);
+  border-left: 5px solid rgb(241, 152, 100);
+ 
+}
+
+h2 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  color: var(--sidebar-color);
+}
+
+
+.table-bus {
+  width: 100%;
+  max-width: 100%;
+  border-collapse: collapse;
+  background: rgb(248, 248, 248);
+  border-radius: 8px;
+  overflow: hidden;
+  margin-bottom: 2rem;
+  margin-left: 10px;
+  box-shadow: 8px 8px 20px rgba(255, 255, 255, 0.08),
+  -8px -8px 20px rgba(255, 255, 255, 0.04);
+
+ 
+}
+
+th, td {
+  padding: 1rem;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+.recent-tables {
+  display: flex;
+  flex-wrap: wrap;
+  
+
+}
+
+.recent-tables > div {
+  flex: 1 1 48%; 
+  min-width: 300px; 
+}
+
+.recent-tickets , .recent-busOp, .recent-routes {
+  text-align: center;
+}
+.main-table{
+  
+  padding:10px
+}
+#seats-col{
+  text-align: center;
+}
+.card:hover, .table-bus:hover {
+  transform: translateY(-5px);
+  box-shadow: 12px 12px 30px rgba(0, 0, 0, 0.4),
+              -5px -5px 15px rgba(255, 255, 255, 0.1);
+  transition: all 0.3s ease;
+}
+.busType{
+  padding: 5px 10px;
+  border-radius: 15px;
+  font-weight: bold;
+  display: inline-block;
+}
+.busType.Luxury-{
+    background: #FF9F00;
+  color: white;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+.busType.Normal-,
+.busType.Normal{
+ background: #F75A5A;
+  color: white;
+}
+.busType.Semi-Luxury{
+	background: #F37121;
+  color: white;
+}
