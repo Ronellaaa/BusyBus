@@ -9,7 +9,7 @@
 <meta charset="UTF-8">
 <title>Bus Cards View</title>
 <link rel="stylesheet"
-	href="${pageContext.request.contextPath}/styles/BusCards.css" />
+	href="${pageContext.request.contextPath}/styles/bus/BusCards.css" />
 </head>
 <body>
 	<div class="bus-card-page">

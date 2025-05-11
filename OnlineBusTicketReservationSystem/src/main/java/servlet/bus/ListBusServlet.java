@@ -39,7 +39,7 @@ public class ListBusServlet extends HttpServlet {
 		request.setAttribute("busList", busList);
 
 		// Forward the request to the ListBuses.jsp page to display the buses
-		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/WEB-INF/views/ListBuses.jsp");
+		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/WEB-INF/view/bus/ListBuses.jsp");
 		dispatcher.forward(request, response);
 	}
 

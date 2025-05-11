@@ -11,8 +11,7 @@
     height: 100vh;
     justify-content: center;
     align-items: center;
-
-    background-image: url('../images/buses-bus-terminal-valletta.jpg'); /* update path as needed */
+  background-image: url('../../assets/buses-bus-terminal-valletta.jpg');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -268,4 +267,3 @@ form .button2 input:hover {
     align-items: center; /* Center vertically */
     z-index: 9999;
 }
-

@@ -7,7 +7,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Edit Bus</title>
-<link rel="stylesheet" href="styles/GetBus.css" />
+<link rel="stylesheet" href="styles/bus/GetBus.css" />
 </head>
 <body>
  
@@ -127,7 +127,7 @@
     </script>
 </c:if>
 
-	<script src="scripts/GetBus.js"></script>
+	<script src=js/bus/GetBus.js"></script>
 	
 </body>
 </html>

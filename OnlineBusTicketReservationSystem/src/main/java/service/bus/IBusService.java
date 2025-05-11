@@ -2,6 +2,7 @@ package service.bus;
 
 import model.bus.Bus;
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Contract for the implementation of Bus Service.
@@ -65,5 +66,9 @@ public interface IBusService {
      * @return a list of buses with route names
      */
     public ArrayList<Bus> getBusesWithRouteNames();
+
+	public List<Bus> searchBuses(String name, String type, String isActiveStr);
+    
+    
 
 }
