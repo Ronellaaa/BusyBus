@@ -70,5 +70,4 @@ public interface IBusService {
 	public List<Bus> searchBuses(String name, String type, String isActiveStr);
     
     
-
 }

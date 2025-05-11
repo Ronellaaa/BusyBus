@@ -6,6 +6,7 @@ import util.DBConnection;
 import java.sql.Time;
 import java.sql.*;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -373,4 +374,11 @@ public class BusServiceImpl implements IBusService {
             log.log(Level.SEVERE, e.getMessage());
         }
     }
+
+
+	@Override
+	public List<Bus> searchBuses(String name, String type, String isActiveStr) {
+		// TODO Auto-generated method stub
+		return null;
+	}
 }
