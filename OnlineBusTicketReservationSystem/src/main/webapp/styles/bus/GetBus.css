@@ -1,269 +1,262 @@
 @charset "UTF-8";
-@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
+@import
+	url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap")
+	;
 
 /* Styles for the form */
 .busForm {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-    font-family: "Poppins", "Inter", system-ui, sans-serif;
-    display: flex;
-    height: 100vh;
-    justify-content: center;
-    align-items: center;
-  background-image: url('../../assets/buses-bus-terminal-valletta.jpg');
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+	font-family: "Poppins", "Inter", system-ui, sans-serif;
+	display: flex;
+	height: 100vh;
+	justify-content: center;
+	align-items: center;
+	background-image: url('../../assets/buses-bus-terminal-valletta.jpg');
+	background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat;
 }
 
 /* Container Styles */
 .container {
-    max-width: 700px;
-    width: 100%;
-    background: rgba(255, 255, 255, 0.2);
-    padding: 30px;
-    border-radius: 10px;
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.3);
+	max-width: 700px;
+	width: 100%;
+	background: rgba(255, 255, 255, 0.2);
+	padding: 30px;
+	border-radius: 10px;
+	box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+	backdrop-filter: blur(10px);
+	-webkit-backdrop-filter: blur(10px);
+	border: 1px solid rgba(255, 255, 255, 0.3);
 }
-
 
 /* Title Styles */
 .container .title {
-    font-size: 25px;
-    font-weight: 600;
-    position: relative;
+	font-size: 25px;
+	font-weight: 600;
+	position: relative;
 }
 
 .container .title::before {
-    content: '';
-    position: absolute;
-    left: 0;
-    bottom: 0;
-    height: 3px;
-    width: 30px;
-    background: linear-gradient(135deg, #FED9B7, #F07167);
+	content: '';
+	position: absolute;
+	left: 0;
+	bottom: 0;
+	height: 3px;
+	width: 30px;
+	background: linear-gradient(135deg, #FED9B7, #F07167);
 }
 
 /* Bus Details Styles */
 .container form .busDetails {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    margin: 20px 0 12px 0;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	margin: 20px 0 12px 0;
 }
 
 /* Input Box Styles */
 form .busDetails .input-box {
-    margin-bottom: 15px;
-    width: calc(100% / 2 - 20px);
+	margin-bottom: 15px;
+	width: calc(100%/ 2 - 20px);
 }
 
 .busDetails .input-box .details {
-    display: block;
-    font-weight: 600;
-    margin-bottom: 5px;
+	display: block;
+	font-weight: 600;
+	margin-bottom: 5px;
 }
 
 .container form .busDetails .input-box .input {
-    height: 45px;
-    width: 100%;
-    outline: none;
-    border-radius: 10px;
-    border: 1px solid #CCC;
-    padding-left: 15px;
-    font-size: 16px;
-    border-bottom-width: 2px;
-    box-sizing: border-box;
+	height: 45px;
+	width: 100%;
+	outline: none;
+	border-radius: 10px;
+	border: 1px solid #CCC;
+	padding-left: 15px;
+	font-size: 16px;
+	border-bottom-width: 2px;
+	box-sizing: border-box;
 }
 
 /* Custom focus styling */
 .input:focus {
-    border-color: #F07167;
-    box-shadow: 0 0 10px rgba(240, 113, 103, 0.5);
-    outline: none;
+	border-color: #F07167;
+	box-shadow: 0 0 10px rgba(240, 113, 103, 0.5);
+	outline: none;
 }
 
 /* Button Container Styles */
 .button-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-    margin-top: 20px;
-    gap: 10px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	width: 100%;
+	margin-top: 20px;
+	gap: 10px;
 }
-
-
 
 /* The switch - the box around the slider */
 .switch {
-  position: relative;
-  display: inline-block;
-  width: 60px;
-  height: 34px;
+	position: relative;
+	display: inline-block;
+	width: 60px;
+	height: 34px;
 }
 
 /* Hide default HTML checkbox */
 .switch input {
-  opacity: 0;
-  width: 0;
-  height: 0;
+	opacity: 0;
+	width: 0;
+	height: 0;
 }
 
 /* The slider */
 .slider {
-  position: absolute;
-  cursor: pointer;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: #ccc;
-  transition: 0.4s;
+	position: absolute;
+	cursor: pointer;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background-color: #ccc;
+	transition: 0.4s;
 }
 
 .slider:before {
-  position: absolute;
-  content: "";
-  height: 26px;
-  width: 26px;
-  left: 4px;
-  bottom: 4px;
-  background-color: white;
-  transition: 0.4s;
+	position: absolute;
+	content: "";
+	height: 26px;
+	width: 26px;
+	left: 4px;
+	bottom: 4px;
+	background-color: white;
+	transition: 0.4s;
 }
 
-input:checked + .slider {
-  background-color: #4ae00d;
+input:checked+.slider {
+	background-color: #4ae00d;
 }
 
-input:focus + .slider {
-  box-shadow: 0 0 1px #4ae00d;
+input:focus+.slider {
+	box-shadow: 0 0 1px #4ae00d;
 }
 
-input:checked + .slider:before {
-  transform: translateX(26px);
+input:checked+.slider:before {
+	transform: translateX(26px);
 }
 
 /* Rounded sliders */
 .slider.round {
-  border-radius: 34px;
+	border-radius: 34px;
 }
 
 .slider.round:before {
-  border-radius: 50%;
+	border-radius: 50%;
 }
 
 /* Button Styles */
-form .button1,
-form .button2 {
-    height: 45px;
-    width: 100%;
-    max-width: 300px;
-    margin: 0;
+form .button1, form .button2 {
+	height: 45px;
+	width: 100%;
+	max-width: 300px;
+	margin: 0;
 }
 
-form .button1 input,
-form .button2 input {
-    height: 100%;
-    width: 100%;
-    outline: none;
-    border-radius: 10px;
-    color: #fff;
-    border: none;
-    font-size: 16px;
-    font-weight: 600;
-    letter-spacing: 1px;
-    cursor: pointer;
+form .button1 input, form .button2 input {
+	height: 100%;
+	width: 100%;
+	outline: none;
+	border-radius: 10px;
+	color: #fff;
+	border: none;
+	font-size: 16px;
+	font-weight: 600;
+	letter-spacing: 1px;
+	cursor: pointer;
 }
 
 /* Delete Button Styles */
- .button-delete {
+.button-delete {
 	height: 45px;
-    width: 100%;
-    max-width: 300px;
-    margin: 0;
-      padding: 10px; /* shorthand for all sides */
-      display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-    
-    
+	width: 100%;
+	max-width: 300px;
+	margin: 0;
+	padding: 10px; /* shorthand for all sides */
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	width: 100%;
 }
 
 .button-delete input {
-    height: 100%;
-    width: 100%;
-    outline: none;
-    border-radius: 10px;
-    color: #fff;
-    border: none;
-    font-size: 16px;
-    font-weight: 600;
-    letter-spacing: 1px;
-    cursor: pointer;
-    background-color: #dc3545;
-}
-.button-delete input:hover {
-    background-color: #a71d2a;
+	height: 100%;
+	width: 100%;
+	outline: none;
+	border-radius: 10px;
+	color: #fff;
+	border: none;
+	font-size: 16px;
+	font-weight: 600;
+	letter-spacing: 1px;
+	cursor: pointer;
+	background-color: #dc3545;
 }
 
+.button-delete input:hover {
+	background-color: #a71d2a;
+}
 
 form .button1 input {
-    background-color: #F07167;
+	background-color: #F07167;
 }
 
 form .button1 input:hover {
-    background-color: #df4136;
+	background-color: #df4136;
 }
 
 form .button2 input {
-    background-color: #3b3a3a;
+	background-color: #3b3a3a;
 }
 
 form .button2 input:hover {
-    background-color: #130a09;
+	background-color: #130a09;
 }
 
 /* Responsive Styles */
-@media (max-width: 584px) {
-    .container {
-        max-width: 100%;
-    }
-    form .busDetails .input-box {
-        margin-bottom: 15px;
-        width: 100%;
-    }
-    
-    .container form .busDetails {
-      max-height: 300px;
-      overflow-y: scroll;
-    }
-    
-    form .button1,
-    form .button2
+@media ( max-width : 584px) {
+	.container {
+		max-width: 100%;
+	}
+	form .busDetails .input-box {
+		margin-bottom: 15px;
+		width: 100%;
+	}
+	.container form .busDetails {
+		max-height: 300px;
+		overflow-y: scroll;
+	}
+	form .button1, form .button2
      .button-delete {
-        max-width: none;
-    }
+		max-width: none;
+	}
 }
 
 /* Overlay that covers the entire screen */
 .overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
-    display: flex; /* Enable flexbox */
-    justify-content: center; /* Center horizontally */
-    align-items: center; /* Center vertically */
-    z-index: 9999;
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+	display: flex; /* Enable flexbox */
+	justify-content: center; /* Center horizontally */
+	align-items: center; /* Center vertically */
+	z-index: 9999;
 }

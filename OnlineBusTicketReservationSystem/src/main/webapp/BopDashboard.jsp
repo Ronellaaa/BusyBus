@@ -94,15 +94,15 @@
 				<!-- Upcoming Departures Today -->
 				<div class="stat-card">
 					<div class="stat-icon green-gradient">⏰</div>
-					<div class="stat-title">Upcoming Departures Today</div>
+					<div class="stat-title">Upcoming Departures</div>
 					<div class="stat-value">${upcomingDeparturesToday}</div>
-					<div class="stat-badge badge-green">...</div>
+					<div class="stat-badge badge-green">Your Upcoming Departures Today!</div>
 				</div>
 
 				<!-- Bus Types in Fleet -->
 				<div class="stat-card">
 					<div class="stat-icon orange-gradient">🧾</div>
-					<div class="stat-title">Bus Types in Fleet</div>
+					<div class="stat-title">Available Bus Types</div>
 					<div class="stat-value">5 Types</div>
 					<div class="stat-badge badge-orange">Luxury, Semi-Luxury, AC,
 						Non-AC, Normal</div>
@@ -121,8 +121,9 @@
 		<c:set var="showActions" value="false" />
 		<c:import url="/WEB-INF/view/partials/BusTable.jsp" />
 
-
 		<!-- Custom JavaScript for dashboard functionality -->
-		<script src="js/bus/BopDashboard.js"></script>
-</body>
+	<script src="${pageContext.request.contextPath}/js/bus/BopDashboard.js"></script>
+ 
+ 
+ </body>
 </html>
