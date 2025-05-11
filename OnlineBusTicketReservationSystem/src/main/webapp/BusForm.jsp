@@ -114,6 +114,7 @@
 			</form>
 		</div>
 	</div>
-	<script src="js/bus/BusForm.js"></script>
+	
+	<script src="/OnlineBusTicketReservationSystem/js/bus/BusForm.js"></script>
 </body>
 </html>

@@ -64,7 +64,6 @@ public class AddBusServlet extends HttpServlet {
         }
     }
 
-
     /**
      * Helper method to handle error forwarding.
      */
@@ -75,3 +74,4 @@ public class AddBusServlet extends HttpServlet {
         dispatcher.forward(request, response);
     }
 }
+

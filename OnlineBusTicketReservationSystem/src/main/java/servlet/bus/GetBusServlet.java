@@ -32,7 +32,7 @@ public class GetBusServlet extends HttpServlet {
         if (busIDParam == null || busIDParam.isEmpty()) {
             // Handle missing bus ID by showing an error message
             request.setAttribute("errorMessage", "Bus ID is missing!");
-            RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/views/ListBuses.jsp");
+            RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/view/bus/ListBuses.jsp");
             dispatcher.forward(request, response);
             return;
         }
@@ -48,20 +48,20 @@ public class GetBusServlet extends HttpServlet {
             	
                 // If bus found, forward to GetBus.jsp for editing
                 request.setAttribute("bus", bus);
-                RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/views/GetBus.jsp");
+                RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/view/bus/GetBus.jsp");
                 dispatcher.forward(request, response);
                 
                 request.setAttribute("updateSuccess", true);
             } else {
                 // If bus not found, show an error message
                 request.setAttribute("errorMessage", "Bus not found for ID: " + busID);
-                RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/views/ListBuses.jsp");
+                RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/view/bus/ListBuses.jsp");
                 dispatcher.forward(request, response);
             }
         } catch (NumberFormatException e) {
             // Handle invalid bus ID format
             request.setAttribute("errorMessage", "Invalid Bus ID format.");
-            RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/views/ListBuses.jsp");
+            RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/view/bus/ListBuses.jsp");
             dispatcher.forward(request, response);
         }
     }

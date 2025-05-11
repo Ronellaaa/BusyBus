@@ -12,7 +12,10 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Bus List</title>
-<link rel="stylesheet" href="styles/ListBuses.css" />
+<link rel="stylesheet" href="styles/bus/ListBuses.css" />
+
+<!-- Add this inline style to correctly load background image -->
+
 
 </head>
 <body>
@@ -31,6 +34,29 @@
 				href="BopDashboardServlet" class="dashboard-btn">Go to Dashboard</a>
 		</div>
 	</div>
+	
+	<!-- === Bus Search Filter Form === -->
+	<form action="SearchBusServlet" method="get" class="filter-form">
+		<input type="text" name="busName" placeholder="Search by name..." class="filter-input"/>
+
+		<select name="busType" class="filter-select">
+			<option value="">All Types</option>
+			<option value="AC">AC</option>
+			<option value="Non-AC">Non-AC</option>
+			<option value="Luxury">Luxury</option>
+			<option value="Semi-Luxury">Semi-Luxury</option>
+			<option value="Normal">Normal</option>
+		</select>
+
+		<select name="isActive" class="filter-select">
+			<option value="">All Status</option>
+			<option value="true">Active</option>
+			<option value="false">Inactive</option>
+		</select>
+
+		<button type="submit" class="dashboard-btn">Search</button>
+	</form>
+	
 	<!--  Enable action buttons (Edit/Delete) -->
 	<%
 	request.setAttribute("showActions", true);
@@ -51,7 +77,8 @@
 		</div>
 	</div>
 
-	<script src="scripts/ListBuses.js"></script>
+<script src="${pageContext.request.contextPath}/js/bus/ListBuses.js"></script>
+
 
 </body>
 </html>
