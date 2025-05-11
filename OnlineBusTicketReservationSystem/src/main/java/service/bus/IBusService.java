@@ -4,8 +4,7 @@ import model.bus.Bus;
 import java.util.ArrayList;
 
 /**
- * Contract for the implementation of Bus Service.
- * @version 1.0
+ * Contract for the implementation of Bus Service
  */
 public interface IBusService {
 
@@ -65,5 +64,13 @@ public interface IBusService {
      * @return a list of buses with route names
      */
     public ArrayList<Bus> getBusesWithRouteNames();
+    
+
+	/**
+	 * Combined method to search buses based on name, type, and active status.
+	 * It dynamically filters buses based on the provided parameters.
+	 */
+	public ArrayList<Bus> searchBuses(String name, String type, String isActiveStr);
+
 
 }
