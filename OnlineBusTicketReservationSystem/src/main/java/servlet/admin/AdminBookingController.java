@@ -27,7 +27,7 @@ public class AdminBookingController extends HttpServlet  {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		try {
 			
-			String sqlQuery = "SELECT CONCAT(c.fist_Name, ' ', c.last_Name) AS fullName, c.phoneNumber,b.booking_id,b.bookingDate,b.journeyDate,b.seatNumber,b.seatType,bus.bus_type,b.noSeats,b.totalPrice,b.bookingStatus FROM customers c INNER JOIN bookings b ON c.cust_id = b.cust_id INNER JOIN busDetails bus ON b.bus_id = bus.bus_id";
+			String sqlQuery = "SELECT CONCAT(c.first_Name, ' ', c.last_Name) AS fullName, c.phoneNumber,b.booking_id,b.bookingDate,b.journeyDate,b.seatNumber,b.seatType,bus.bus_type,b.noSeats,b.totalPrice,b.bookingStatus FROM customers c INNER JOIN bookings b ON c.cust_id = b.cust_id INNER JOIN busDetails bus ON b.bus_id = bus.bus_id";
 					
 			Connection conn = DBConnection.getInstance().getConnection();
 			PreparedStatement stmt = conn.prepareStatement(sqlQuery);

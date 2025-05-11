@@ -43,7 +43,7 @@ public class AdminBusController extends HttpServlet {
 		            buses.add(bus);
 			}
 					request.setAttribute("busList", buses);
-					request.getRequestDispatcher("/WEB-INF/views/admin/admin-bus.jsp").forward(request, response);
+					request.getRequestDispatcher("/WEB-INF/view/Admin/admin-bus.jsp").forward(request, response);
 					
 		}catch(Exception e) {
 			System.err.println("Error fetching bus operators");

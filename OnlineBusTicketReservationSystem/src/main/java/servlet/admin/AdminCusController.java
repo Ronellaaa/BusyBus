@@ -21,7 +21,7 @@ public class AdminCusController extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		try {
-			String sqlQuery = "SELECT cust_id,CONCAT(fist_Name, '  ', last_Name) AS fullName,email,phoneNumber FROM customers";
+			String sqlQuery = "SELECT cust_id,CONCAT(first_Name, '  ', last_Name) AS fullName,email,phoneNumber FROM customers";
 			Connection conn = DBConnection.getInstance().getConnection();
 			PreparedStatement st = conn.prepareStatement(sqlQuery);
 			ResultSet rs = st.executeQuery();

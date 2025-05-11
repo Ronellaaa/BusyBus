@@ -26,7 +26,7 @@ public class AdminPaymentsController extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		try {
 			String sqlQuery = "SELECT p.payment_id, " +
-	                  "CONCAT(c.fist_Name, ' ', c.last_Name) AS fullName, " +
+	                  "CONCAT(c.first_Name, ' ', c.last_Name) AS fullName, " +
 	                  "b.booking_id, p.amount, p.payment_date, p.payment_status " +
 	                  "FROM customers c " +
 	                  "INNER JOIN bookings b ON c.cust_id = b.cust_id " +

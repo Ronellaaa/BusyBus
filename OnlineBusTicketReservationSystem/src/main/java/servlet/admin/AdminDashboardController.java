@@ -39,7 +39,7 @@ public class AdminDashboardController extends HttpServlet {
                 "INNER JOIN BusRoute r ON r.busRouteId = a.route_id";
 		
 		
-		String displayTicketsQuery = "SELECT CONCAT(c.fist_Name, ' ', c.last_Name) AS fullName, " +
+		String displayTicketsQuery = "SELECT CONCAT(c.first_Name, ' ', c.last_Name) AS fullName, " +
 			    "b.bus_name, b.bus_type, r.busRouteName, " +
 			    "bo.journeyDate, a.assignment_id, " + 
 			    "GROUP_CONCAT(bo.seatNumber ORDER BY bo.seatNumber ASC) AS seatNumbers, " +
