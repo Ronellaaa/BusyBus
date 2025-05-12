@@ -3,27 +3,32 @@ package model.customer;
 public class Customer {
 	
 	
-
-private String fist_Name;
+private int customer_id;
+private String first_Name;
  private String last_Name;
  private String  email;
  private String phoneNumber;
  private String password;
  
- public Customer(String fist_Name, String last_Name, String email, String phoneNumber, String password) {
-
-		this.fist_Name = fist_Name;
-		this.last_Name = last_Name;
-		this.email = email;
-		this.phoneNumber = phoneNumber;
-		this.password = password;
+// public Customer(String fist_Name, String last_Name, String email, String phoneNumber, String password) {
+//
+//		this.fist_Name = fist_Name;
+//		this.last_Name = last_Name;
+//		this.email = email;
+//		this.phoneNumber = phoneNumber;
+//		this.password = password;
+//	}
+ public int getCustomer_id() {
+		return customer_id;
 	}
- 
- public String getFist_Name() {
-	return fist_Name;
+	public void setCustomer_id(int customer_id) {
+		this.customer_id = customer_id;
+	}
+ public String getFirst_Name() {
+	return first_Name;
 }
-public void setFist_Name(String fist_Name) {
-	this.fist_Name = fist_Name;
+public void setFirst_Name(String first_Name) {
+	this.first_Name = first_Name;
 }
 public String getLast_Name() {
 	return last_Name;

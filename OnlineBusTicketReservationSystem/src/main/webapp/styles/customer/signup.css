@@ -9,9 +9,28 @@
 }
 
 body {
+  position: relative; /* Make sure it's the reference for :before */
+  z-index: 0;
   font-family: "Open Sans", Helvetica, Arial, sans-serif;
-  background: #ffffff;
+  background-image: url("../../assets/autu.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  /* Remove other styling if needed */
 }
+
+body::before {
+  content: "";
+  position: fixed; /* Use fixed to cover full screen */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6); /* This darkens the background */
+  z-index: -1; /* Behind all content */
+}
+
+
 
 input,
 button {
@@ -28,17 +47,24 @@ button {
 }
 
 .cont {
+	
   border-radius: 20px;
   overflow: hidden;
   position: relative;
   width: 900px;
   height: 550px;
-  margin: 0 auto 100px;
-  background: #fff;
-  box-shadow: -10px -10px 15px rgba(255, 255, 255, 0.3),
-    10px 10px 15px rgba(70, 70, 70, 0.15),
-    inset -10px -10px 15px rgba(255, 255, 255, 0.3),
-    inset 10px 10px 15px rgba(70, 70, 70, 0.15);
+  margin: 120px auto 100px;
+/* background: linear-gradient(135deg, #fff3e0, #ffd180, #ffab40, #ff7043); */
+background-color: #ff9f00;
+background-image: linear-gradient(315deg, #ff9f00 0%, #ff6961 74%);
+
+box-shadow:
+  -10px -10px 20px rgba(255, 110, 50, 0.1),   /* warm top-left glow */
+   10px 10px 20px rgba(0, 0, 0, 0.5),         /* deep bottom-right shadow */
+  inset -10px -10px 15px rgba(255, 110, 50, 0.05),
+  inset 10px 10px 15px rgba(0, 0, 0, 0.4);
+
+
 }
 
 .form {
@@ -52,6 +78,18 @@ button {
   padding: 50px 30px 0;
 }
 
+.log{
+	position: relative;
+  width: 640px;
+  height: 100%;
+  -webkit-transition: -webkit-transform 1.2s ease-in-out;
+  transition: -webkit-transform 1.2s ease-in-out;
+  transition: transform 1.2s ease-in-out;
+  transition: transform 1.2s ease-in-out, -webkit-transform 1.2s ease-in-out;
+  padding: 50px 30px 0;
+  top:100 !important;
+}
+
 .sub-cont {
   overflow: hidden;
   position: absolute;
@@ -60,7 +98,8 @@ button {
   width: 900px;
   height: 100%;
   padding-left: 260px;
-  background: #fff;
+ /* background-image: url("../../assets/saku1.jpg"); */
+ background-size: cover;
   -webkit-transition: -webkit-transform 1.2s ease-in-out;
   transition: -webkit-transform 1.2s ease-in-out;
   transition: transform 1.2s ease-in-out;
@@ -72,15 +111,31 @@ button {
   transform: translate3d(-640px, 0, 0);
 }
 
-button {
+.submit{
   display: block;
   margin: 0 auto;
   width: 260px;
   height: 36px;
   border-radius: 30px;
   color: #fff;
-  font-size: 15px;
+  font-size: 20px;
   cursor: pointer;
+  margin-top: 40px;
+  margin-bottom: 20px;
+  background: #d4af7a;
+  text-transform: uppercase;
+}
+
+
+
+
+.img img{
+	width: 300px;
+    height: 350px;
+   
+}
+.ilu {
+  margin-top: -230px;
 }
 
 .img {
@@ -94,6 +149,7 @@ button {
   padding-top: 360px;
 }
 
+
 .img:before {
   content: "";
   position: absolute;
@@ -101,7 +157,7 @@ button {
   top: 0;
   width: 900px;
   height: 100%;
-  background-image: url("ext.jpg");
+/*   background-image: url("il.png"); */
   opacity: 0.8;
   background-size: cover;
   -webkit-transition: -webkit-transform 1.2s ease-in-out;
@@ -116,12 +172,13 @@ button {
   top: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0, 0, 0, 0.6);
+  background: rgba(0, 0, 0, 0.5);
 }
 
 .cont.s--signup .img:before {
   -webkit-transform: translate3d(640px, 0, 0);
   transform: translate3d(640px, 0, 0);
+      
 }
 
 .img__text {
@@ -152,16 +209,19 @@ button {
 .cont.s--signup .img__text.m--up {
   -webkit-transform: translateX(520px);
   transform: translateX(520px);
+  
 }
 
 .img__text.m--in {
   -webkit-transform: translateX(-520px);
   transform: translateX(-520px);
+  
 }
 
 .cont.s--signup .img__text.m--in {
   -webkit-transform: translateX(0);
   transform: translateX(0);
+    
 }
 
 .img__btn {
@@ -211,16 +271,22 @@ button {
 .img__btn span.m--in {
   -webkit-transform: translateY(-72px);
   transform: translateY(-72px);
+  
 }
 
 .cont.s--signup .img__btn span.m--in {
   -webkit-transform: translateY(0);
   transform: translateY(0);
+     
+  
+
 }
 
 .cont.s--signup .img__btn span.m--up {
   -webkit-transform: translateY(72px);
   transform: translateY(72px);
+     
+
 }
 
 h2 {
@@ -237,8 +303,8 @@ label {
 }
 
 label span {
-  font-size: 12px;
-  color: #cfcfcf;
+  font-size: 17px;
+  color: black;
   text-transform: uppercase;
 }
 
@@ -250,6 +316,7 @@ input {
   font-size: 16px;
   border-bottom: 1px solid rgba(0, 0, 0, 0.4);
   text-align: center;
+  background-color: none;
 }
 
 .forgot-pass {
@@ -257,13 +324,6 @@ input {
   text-align: center;
   font-size: 12px;
   color: #cfcfcf;
-}
-
-.submit {
-  margin-top: 40px;
-  margin-bottom: 20px;
-  background: #d4af7a;
-  text-transform: uppercase;
 }
 
 .fb-btn {
@@ -279,6 +339,7 @@ input {
 .sign-in {
   -webkit-transition-timing-function: ease-out;
   transition-timing-function: ease-out;
+  
 }
 
 .cont.s--signup .sign-in {
@@ -288,6 +349,7 @@ input {
   transition-duration: 1.2s;
   -webkit-transform: translate3d(640px, 0, 0);
   transform: translate3d(640px, 0, 0);
+      width:870px;
 }
 
 .sign-up {
@@ -299,3 +361,91 @@ input {
   -webkit-transform: translate3d(0, 0, 0);
   transform: translate3d(0, 0, 0);
 }
+
+
+
+.leaf{
+    position:absolute ;
+    width:100%;
+    height:100%;
+    top:0;
+    left:0;
+}
+.leaf div{
+position:absolute ;
+display:block ;
+}
+.leaf div:nth-child(1){
+    left:20%; 
+    animation:fall 15s linear infinite ;
+    animation-delay:-2s;
+
+}
+.leaf div:nth-child(2){
+    left:70%; 
+    animation:fall 15s linear infinite ;
+    animation-delay:-4s;
+}
+.leaf div:nth-child(3){
+    left:10%; 
+    animation:fall 20s linear infinite ;
+    animation-delay:-7s;
+    
+}
+.leaf div:nth-child(4){
+    left:50%; 
+   animation:fall 18s linear infinite ; 
+   animation-delay:-5s;
+}
+.leaf div:nth-child(5){
+    left:85%; 
+    animation:fall 14s linear infinite ;
+    animation-delay:-5s;
+}
+.leaf div:nth-child(6){
+    left:15%; 
+    animation:fall 16s linear infinite ;
+    animation-delay:-10s;
+}
+.leaf div:nth-child(7){
+    left:90%; 
+    animation:fall 15s linear infinite ;
+    animation-delay:-4s;
+}
+
+@keyframes fall{
+    0%{
+        opacity:1;
+        top:-10%;
+        transform:translateX (20px) rotate(0deg);
+    }
+    20%{
+        opacity:0.8;
+        transform:translateX (-20px) rotate(45deg);
+    }
+    40%{
+
+        transform:translateX (-20px) rotate(90deg);
+    }
+    60%{
+        
+       transform:translateX (-20px) rotate(135deg); 
+    }
+    80%{
+    
+        transform:translateX (-20px) rotate(180deg);
+    }
+    100%{
+        
+        top:110%;
+        transform:translateX (-20px) rotate(225deg);
+    }
+    }
+    
+    
+.leaf1{
+    transform: rotateX(180deg);
+}
+
+
+

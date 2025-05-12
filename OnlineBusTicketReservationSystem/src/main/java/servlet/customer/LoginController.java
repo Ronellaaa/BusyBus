@@ -43,15 +43,15 @@ public class LoginController extends HttpServlet {
 			
 			 if(rs.next()) {
 				  HttpSession session = req.getSession();
-				  session.setAttribute("cust_id", rs.getInt("cust_id"));
+				  
+				  session.setAttribute("customer_id", rs.getInt("cust_id")); 
 //				  session.setAttribute("cust_id", rs.getInt("cust_id"));
-			        session.setAttribute("first_name", rs.getString("first_name"));
-			        session.setAttribute("last_name", rs.getString("last_name"));
+				  session.setAttribute("name", rs.getString("first_Name") + " " + rs.getString("last_Name")); 
 			        session.setAttribute("email", rs.getString("email"));
-			        session.setAttribute("phoneNumber", rs.getString("phoneNumber"));
-				  session.setAttribute("password", rs.getInt("password"));
+			        session.setAttribute("phone", rs.getString("phoneNumber"));
+//				  session.setAttribute("password", rs.getInt("password"));
 			        
-				  res.sendRedirect("Homepage.html");
+				  res.sendRedirect("Homepage.jsp");
 			 }else {
 	                req.setAttribute("error", "Invalid email or password");
 	                req.getRequestDispatcher("/WEB-INF/view/customer/SignUp.jsp").forward(req, res);
