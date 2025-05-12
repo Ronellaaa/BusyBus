@@ -1,0 +1,465 @@
+
+:root {
+  --primary-color:#1a1a1a;
+  --secondary-color: #3f37c9;
+  --success-color: #4cc9f0;
+  --danger-color: #f72585;
+  --warning-color: #f8961e;
+  --light-color: #f8f9fa;
+  --dark-color: #212529;
+  --border-color: #dee2e6;
+  --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Notification styles  */
+.notification-container {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 1000;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: flex-end;
+}
+
+.notification {
+    padding: 15px 20px;
+    border-radius: 5px;
+    color: white;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 400px;
+    animation: slideIn 0.5s ease-out;
+    transition: all 0.3s ease;
+}
+
+.notification-close {
+    margin-left: 15px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.notification.warning {
+    background-color: #ff9800;
+}
+
+.notification a {
+    color: white;
+    text-decoration: underline;
+    margin-left: 5px;
+    font-weight: bold;
+}
+
+@keyframes slideIn {
+    from { transform: translateX(100%); }
+    to { transform: translateX(0); }
+}
+
+.nav{
+  	width:100%;
+	display:inline;
+	flex:1;
+	height: 100%;
+    display:flex;
+    background: blue;
+    text-align:center;
+    background-color: var(--primary-color);
+	color: white;
+	word-wrap:nowrap;
+}
+
+ul{	
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+  display:flex;
+  background-color: var(--primary-color);
+  color: white;
+  white-space: nowrap;
+	
+}
+
+li {
+  height: 100%;
+  display:flex;
+  align-items: stretch;
+  display:block;
+  width:100%;
+  background-color: var(--primary-color);
+  color: white;
+  white-space: nowrap;
+  
+}
+
+li a {
+  /* Make anchor fill the li */
+  width: 100%;
+  padding: 15px 0; /* Adjust vertical padding as needed */
+
+  /* Center text vertically */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  
+  /* Ensure clickable area covers entier space */
+  text-decoration: none;
+  color: black;
+  background-color: var(--primary-color);
+  color: white;
+  font-weight: 600;
+  word-wrap:nowrap;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  
+}
+
+.arc li :hover{
+	background-color: red;
+}
+
+.all li :hover{
+	background-color: white;
+	color:black;
+	font-weight:700px;
+}
+
+.pen li :hover{
+	background-color: #ff884d;
+}
+
+.com li :hover{
+	background-color: #00e68a;
+}
+
+.fai li :hover{
+	background-color: #ff8080;
+
+}
+
+.ref li :hover{
+	background-color: #cc33ff;
+}
+
+ .navbar{
+	
+	border-radius:20px;	
+	background:red;
+	width:1250px;
+	margin:0 auto;
+	height:58px;
+	padding:0;
+	display:flex;
+	align-items: center;	
+}
+
+body {
+	  background-image: url('../../assets/realF.jpg');
+	  background-size: cover;       /* Cover entire element */
+	  background-position: center; /* Center the image */
+	  background-repeat: no-repeat; /* No repeating */
+	  background-attachment: fixed; /* Optional: fixed scrolling */
+	  font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+	  line-height: 1.6;/* creates spacious text*/
+	  color: #333;
+	  background-color: #f8fafc;
+	  margin-top:0;
+  
+}
+
+/* Table Container */
+.table-container {
+   perspective: 1000px; /* Enables 3D space  */
+   background: rgba(255,255,255,.75);
+   width: fit-content;
+   justify-content: center;
+   margin:50px auto;
+   padding:20;
+   box-shadow: 0 0 10px rgba(0,0,0,0.2);
+}
+
+#transbtn{
+	background:transparent;
+	background: rgba(255,255,255,.75);
+	box-shadow: 0 0 10px rgba(0,0,0,0.2);
+	transition: background-color 0.3s ease; /* Smooth hover */
+}
+
+i{
+	font-size: 30px;
+	color: black;
+}
+
+i:hover{
+	color:white;
+}
+
+#transbtn:hover{
+	 background-color: #333;
+	transition: background-color 0.3s ease;
+	}
+
+/* Main table Styling */
+table {
+  width:100%;
+  border-spacing: 0;
+  border-collapse: separate; /* ✅ Enable rounded corners */
+  border-radius: 10px;
+  backdrop-filter: blur(20px);
+  overflow: none;
+  
+}
+
+/* Fixed Header */
+thead {
+	box-shadow: 0 2px 5px rgba(0,0,0,0.1); /* Subtle shadow */
+  	position: sticky;
+  	top: 0;
+  	z-index: 10;
+}
+
+th, td {
+  padding: 6px 12px; /* Reduce cell padding */
+  white-space: nowrap; /* Prevent text wrapping */
+}
+
+/* Header Cells */
+th {
+  background-color: var(--primary-color);
+  color: white;
+  padding: 1rem 1.25rem;
+  text-align: center;
+  font-weight: 600;
+  font-size: 0.875rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  position: relative;
+}
+
+th:not(:last-child)::after {
+  content: '';
+  position: absolute;
+  right: 0;
+  top: 25%;
+  height: 50%;
+  width: 1px;
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+
+/* Body Cells */
+td:not(:last-child) {
+  padding: 1rem 1.25rem;
+  border-bottom: 1px solid white;
+  vertical-align: middle;
+  font-size: 0.9375rem;
+  /*font-weight: 600;*/
+  /*color: #333333;*/
+  font-family: "Poppins";
+}
+
+td{
+	font-weight: 600;
+	color:#6b6b47;
+}
+
+/* Row Styling */
+tr {
+  transition: all 0.2s ease;
+}
+
+tr {
+  /*background-color: rgba(248, 249, 250, 0.5);*/
+  background-color: rgba(255, 255, 255,0.5);
+  transition: all 0.3s ease;
+  transform-origin: center;
+  border-radius: 10px;
+}
+
+#newAr{
+	color: white;
+	top:8px;
+	position:relative;
+	left:10px;
+}
+
+tr:hover {
+  transform: scale(1.05);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1), 
+                0 6px 6px rgba(0,0,0,0.1);
+    z-index: 10;
+    background-color:white;
+    position: relative; 
+}
+
+/* Status Badges */
+.status-badge {
+  display: inline-block;
+  padding: 0.35rem 0.75rem;
+  border-radius: 2rem;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  text-transform: capitalize;
+}
+
+.status-pending {
+  /*background-color: rgba(248, 150, 30, 0.1);*/
+  background-color: #ff884d;
+  color: white;
+}
+
+.status-completed {
+  background-color: #00e68a;
+  color: white; 
+}
+
+.status-failed {
+  background-color: #ff8080;
+  color: white;
+}
+
+.status-refunded {
+  background-color: #cc33ff;
+  color: white;
+}
+
+/* Action Buttons */
+.action-buttons {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.btn {
+  padding: 0.5rem 1rem;
+  border-radius: 0.375rem;
+  font-size: 0.8125rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  border: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.375rem;
+}
+
+.btn-sm {
+  padding: 0.375rem 0.75rem;
+  font-size: 0.75rem;
+}
+
+.btn-primary {
+  background-color: var(--primary-color);
+  color: white;
+}
+
+.btn-primary:hover {
+  /*background-color: var(--secondary-color);*/
+  background-color: #00cc66;
+}
+
+.btn-danger:hover {
+  background-color: #d1146a;
+}
+
+.btn-outline {
+  color: white;
+  background-color: #0066ff;
+}
+
+.btn-outline:hover {
+  background-color:#ff8080;
+}
+
+/* Form Elements */
+select {
+  padding: 0.5rem;
+  border-radius: 0.375rem;
+  border: 1px solid var(--border-color);
+  font-size: 0.875rem;
+  min-width: 120px;
+  
+}
+
+
+/* Edit Form */
+.edit-form {
+  display: none;
+  background-color: white;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  box-shadow: var(--shadow);
+  margin-top: 0.5rem;
+  border: 1px solid var(--border-color);
+  position:absolute;
+  z-index: 10000000;     /* Higher than other elements */
+  overflow: none;
+  right:1px;
+
+}
+
+.form-group {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+/* Currency Format */
+.currency {
+  font-family: 'Courier New', monospace;
+  font-weight: 600;
+  color: var(--dark-color);
+}
+
+/* Responsive Adjustments */
+@media (max-width: 992px) {
+  .table-container {
+    overflow-x: auto;
+  }
+}
+
+ #archivebtn {
+ 	font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    border: none;
+    background-color: var(--primary-color);
+    color: #ffff;
+    padding: 10px 20px;
+    font-size: 20px;
+    width: fit-content;
+    white-space: nowrap;
+    word-wrap:normal;
+    border-radius: 10px;
+    margin: auto;
+    position: relative;
+    box-shadow: 5px 5px 5px #FBC1D4;
+    transition: all 0.3s ease;
+    top:0;
+    left:0;
+  
+  }
+  
+@keyframes arW{
+	to{width:500px;}
+}
+
+#archivebtn:hover {
+    box-shadow: 0px 2px 20px #A20A3C;
+    top: 3px;
+    animation-name:arW;
+    animation-fill-mode:forwards;
+}
+ 
+#archivebtn:active {
+    box-shadow: none;
+    top: 5px;
+}
+  
+
+  
