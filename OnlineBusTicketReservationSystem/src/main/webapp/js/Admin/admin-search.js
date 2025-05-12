@@ -1,4 +1,21 @@
+//Toggle side-bar function
+const toggleBtn = document.getElementById("toggle-menu-btn");
+ const sidebar = document.querySelector(".admin-sidebar");
+ const main = document.querySelector("main");
 
+ toggleBtn.addEventListener("click", () => {
+   sidebar.classList.toggle("collapsed");
+
+   // Optional: dynamically adjust main area
+   if (sidebar.classList.contains("collapsed")) {
+     document.body.style.gridTemplateColumns = "80px 1fr";
+   } else {
+     document.body.style.gridTemplateColumns = "250px 1fr";
+   }
+ });
+ 
+ 
+//search fuction 
 function searchRoute(){
 	var input = document.getElementById("search-bar");
 	var filter = input.value.toLowerCase();

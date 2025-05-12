@@ -14,13 +14,14 @@ body {
   margin: 0;
   font-family: 'Poppins', sans-serif;
   display: grid;
-  grid-template-columns: 250px 1fr;
+  grid-template-columns: auto 1fr;
   min-height: 100vh;
+  transition: all 0.3s ease;
 
 }
 
 .admin-sidebar {
-  background: linear-gradient(to right, #232526, #414345);
+  background: #184D47;
   height: 100vh;
   width: 250px;
   padding: 1rem;
@@ -30,20 +31,22 @@ body {
   flex-direction: column;
   box-shadow: 8px 8px 20px rgba(0, 0, 0, 0.25),
   -8px -8px 20px rgba(255, 255, 255, 0.1);
+   transition: width 0.3s ease;
 
 }
 
 .logo-section {
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  margin-bottom: 2rem;
+  justify-content: space-between;
+  gap: 10px;
+  white-space: nowrap;
 }
 
 .logo {
   font-size: 1.5rem;
   font-weight: 600;
-  color: #f46b45;
+  color: white;
 }
 
 .menu-icon {
@@ -57,6 +60,9 @@ body {
 .nav-links {
   list-style: none;
   padding: 0;
+   display: flex;
+  flex-direction: column;
+  height: 100%;
 }
 
 .nav-links li {
@@ -75,13 +81,31 @@ body {
   font-size: 1rem;
 }
 
+.admin-logout,
+.admin-user{
+	display:flex;
+	align-items:center;
+	justify-items:center;
+	color:white;
+	
+}
+
+
+
+.admin-bottom-section {
+  margin-top: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
 .nav-links a:hover,
 .dropdown-btn:hover {
-  background: linear-gradient(to right, #f46b45, #eea849);
+  background: linear-gradient(to right, #ffe000, #799f0c);
 }
 
 .nav-links li.active a {
-  background-color:#f46b45;
+  background-color:#799f0c;
   color: #2c3e50;
   font-weight: 600;
 }
@@ -99,6 +123,7 @@ body {
   display: none;
   list-style: none;
   padding-left: 1rem;
+  transition: all 0.3s ease;
 
 }
 
@@ -130,16 +155,47 @@ body {
 }
 
 .nav-links a:hover svg{
-  fill: #f12711;
+  fill: #184D47;
 }
+.admin-sidebar.collapsed {
+  width: 80px;
+  transition: width 0.3s ease;
+  gap:40px;
+}
+.admin-sidebar.collapsed .logo-section span.logo,
+.admin-sidebar.collapsed .btn-text,
+.admin-sidebar.collapsed .nav-links span,
+.admin-sidebar.collapsed .sub-menu span{
+  display: none;
+}
+.admin-sidebar.collapsed .nav-links a,
+.admin-sidebar.collapsed .dropdown-btn {
+  text-align: center;
+  padding: 0.75rem 0;
+}
+
+.admin-sidebar.collapsed .nav-links svg {
+  margin: 0 auto;
+}
+
+.admin-sidebar.collapsed .logo-section {
+  justify-content: center;
+}
+.admin-sidebar.collapsed .logo {
+  display: none;
+}
+
 
 
 main {
   padding: 2.5rem;
-  background-image: url(../../assets/bg1.png);
-  border-image: fill 1 linear-gradient(hsla(0, 0%, 0%, 0.3), hsla(0, 0%, 0%, 0.3));
-  background-size: cover;
-  background-position: center;
+  background-image: url(../../assets/bus20.png); 
+
+  border-image: fill 1 linear-gradient(hsla(0, 0%, 0%, 0.3), hsla(0, 0%, 0%, 0.3)); 
+   background-size: cover;
+  background-position: center; 
+  transition: margin-left 0.3s ease;
+  
 }
 
 
@@ -176,22 +232,28 @@ main {
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.06);
   font-weight: 500;
   color: white;
+  height:75px;
+  display:flex;
+  flex-direction:row;
+  align-items:center;
+  justify-items:center;
 }
 
 .custCard{
-  background: linear-gradient(to right, #ff5f6d, #ffc371);
+    background: linear-gradient(to right, #ff5f6d, #ffc371);
   border-left: 5px solid rgb(241, 152, 100);
+  
  
 }
 .paymentCard{
-  background: linear-gradient(to right, #ff5f6d, #ffc371);
-  border-left: 5px solid rgb(241, 152, 100);
+    background: linear-gradient(to right, #16a085, #f4d03f);
+  border-left: 5px solid #FFD63A;
  
   
 }
 .busOpCard{
-  background: linear-gradient(to right, #ff5f6d, #ffc371);
-  border-left: 5px solid rgb(241, 152, 100);
+   background: linear-gradient(to right, #16a085, #f4d03f);
+  border-left: 5px solid #FFD63A;
  
 }
 .seatCard{
@@ -208,16 +270,20 @@ h2 {
 
 
 .table-bus {
+  
   width: 100%;
   max-width: 100%;
   border-collapse: collapse;
-  background: rgb(248, 248, 248);
-  border-radius: 8px;
   overflow: hidden;
   margin-bottom: 2rem;
   margin-left: 10px;
-  box-shadow: 8px 8px 20px rgba(255, 255, 255, 0.08),
-  -8px -8px 20px rgba(255, 255, 255, 0.04);
+ background: rgba( 255, 255, 255, 0.5 );
+box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+backdrop-filter: blur( 4px );
+-webkit-backdrop-filter: blur( 4px );
+border-radius: 10px;
+border: 1px solid rgba( 255, 255, 255, 0.18 );
+
 
  
 }
@@ -255,23 +321,18 @@ th, td {
               -5px -5px 15px rgba(255, 255, 255, 0.1);
   transition: all 0.3s ease;
 }
-.busType{
-  padding: 5px 10px;
+
+.status.active{
+padding: 5px 10px;
   border-radius: 15px;
   font-weight: bold;
   display: inline-block;
+  background: #89AC46;
 }
-.busType.Luxury-{
-    background: #FF9F00;
-  color: white;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-}
-.busType.Normal-,
-.busType.Normal{
- background: #F75A5A;
-  color: white;
-}
-.busType.Semi-Luxury{
-	background: #F37121;
-  color: white;
+.status.inactive{
+padding: 5px 10px;
+  border-radius: 15px;
+  font-weight: bold;
+  display: inline-block;
+  background: #E52020;
 }
