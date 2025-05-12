@@ -1,0 +1,112 @@
+body {
+  background-image: url('../../assets/bookH.png');
+  background-size: cover;       /* Cover entire element */
+  background-position: center; /* Center the image */
+  background-repeat: no-repeat; /* No repeating */
+  background-attachment: fixed; /* Optional: fixed scrolling */
+  font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+  line-height: 1.6;/* creates spacious text*/
+  color: #333;
+  padding: 2rem;
+}
+/* Table Container */
+.table-container {
+  perspective: 1000px; /* Enables 3D space */
+  overflow: hidden;
+  width: fit-content;
+  justify-content: center;
+  margin:0 auto;
+  padding:0;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.2);
+}
+
+table {
+  width: auto;
+  border-spacing: 0;
+  border-collapse: collapse; /* ✅ Enable rounded corners */
+  border-radius: 10px;
+  min-width: 800px;
+}
+
+thead {
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1); /* Subtle shadow */
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+th, td {
+  padding: 6px 12px; /* Reduce cell padding */
+  white-space: nowrap; /* Prevent text wrapping */
+}
+
+th {
+  background-color: white;
+  color: #ff4da6;
+  padding: 1rem 1.25rem;
+  text-align: left;
+  font-weight: 1200;
+  font-size: 0.875rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  position: relative;
+}
+
+td{
+	background: transparent;
+	justify-content: center;
+	font-weight: 500;
+	color:  #000066;
+	transition: all 0.3s ease;
+	position: relative;
+	max-width: 600px;
+    backdrop-filter: blur(13px);
+
+}
+
+tr{
+	transition: all 0.3s ease;
+    transform-origin: center;
+     border-radius: 10px;
+}
+
+tr:hover{
+	transform: scale(1.0);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1), 
+                0 6px 6px rgba(0,0,0,0.1);
+    z-index: 10;
+    position: relative; 
+}
+
+tr:not(:last-child){
+	border-bottom: 1px solid white;
+}
+
+tr:last-child{
+	border-bottom: none !important; /* Override for headers */
+}
+
+th:not(:last-child)::after {
+  content: '';
+  position: absolute;
+  right: 0;
+  top: 25%;
+  height: 50%;
+  width: 1px;
+  background-color: pink;
+}
+
+td {
+  padding: 1rem 1.25rem;
+  border-bottom: 1px solid white;
+  vertical-align: middle;
+  font-size: 15px;
+  font-family: "Poppins";
+}
+
+tr {
+  transition: all 0.2s ease;
+}
+
+
