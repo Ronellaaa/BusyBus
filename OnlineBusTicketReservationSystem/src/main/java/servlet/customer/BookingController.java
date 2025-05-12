@@ -10,6 +10,8 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
+
 import java.io.IOException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -24,17 +26,32 @@ public class BookingController  extends HttpServlet{
 	    protected void doGet(HttpServletRequest request, HttpServletResponse response)
 	            throws ServletException, IOException {
 		   
-		    List<String> bookedseats = new ArrayList<>();
+		   HttpSession session = request.getSession(false); 
+		    if (session == null || session.getAttribute("name") == null) {
+		        response.sendRedirect("login.jsp"); 
+		        return;
+		    }
+
+		   int busId = Integer.parseInt(request.getParameter("busId"));
+		   List<String> bookedseats = new ArrayList<>();
+		   double pricePerSeat = 1000.0;
+	        int totalSeats = 50;
+	        String routeStart = "";
+	        String routeEnd = "";
+	        String busName = "";
 		   
 		   try {
 			   
 			 
 			   Connection conn = DBConnection.getInstance().getConnection();
 			   
-			   String sql = "SELECT seats FROM bookings WHERE bookingStatus = 'Pending'";
+//			   String sql = "SELECT seats FROM bookings WHERE bookingStatus = 'Pending'";
+			   String sql = "SELECT seats FROM bookings WHERE bookingStatus = 'Pending' AND bus_id = ?";
 			   
 
 			   PreparedStatement stmt = conn.prepareStatement(sql);
+			   stmt.setInt(1, busId);
+			   
 			   ResultSet result= stmt.executeQuery();
 			   
 			   while(result.next()) {
@@ -44,9 +61,35 @@ public class BookingController  extends HttpServlet{
 				        bookedseats.add(seatNumber);
 				   }
 			   }
-			   request.setAttribute("bookedSeats", bookedseats);
-			   request.getRequestDispatcher("/WEB-INF/view/customer/booking.jsp").forward(request, response);
-
+			   
+			   // === FETCH BUS DETAILS + ROUTE INFO ===
+			   
+			   String busInfo = """
+                SELECT b.price_per_seat, b.total_seats, b.bus_name,
+                       r.start_location, r.end_location
+                FROM busDetails b
+                JOIN BusRoute r ON b.busRouteId = r.busRouteId
+                WHERE b.bus_id = ?
+            """;
+			   
+			   PreparedStatement busstmt = conn.prepareStatement(busInfo);
+			   busstmt.setInt(1, busId);
+			   
+			   ResultSet busRs= busstmt.executeQuery();
+			   
+			   
+			   if(busRs.next()) {
+				   pricePerSeat = busRs.getDouble("price_per_seat");
+	                totalSeats = busRs.getInt("total_seats");
+	                busName = busRs.getString("bus_name");
+	                routeStart = busRs.getString("start_location");
+	                routeEnd = busRs.getString("end_location");
+			   }
+			   
+			   
+			   
+//			   request.setAttribute("bookedSeats", bookedseats);
+			  
 			 
 			   
 		   }catch(Exception e) {
@@ -54,7 +97,16 @@ public class BookingController  extends HttpServlet{
 		   }
 		   System.out.println("BOOKED SEATS SERVLET DEBUG: " + bookedseats);
 
-		   
+		   request.setAttribute("bookedSeats", bookedseats);
+	        request.setAttribute("busId", busId);
+	        request.setAttribute("pricePerSeat", pricePerSeat);
+	        request.setAttribute("totalSeats", totalSeats);
+	        request.setAttribute("routeStart", routeStart);
+	        request.setAttribute("routeEnd", routeEnd);
+	        request.setAttribute("busName", busName);
+	        
+	        request.getRequestDispatcher("/WEB-INF/view/customer/bookingSeats.jsp").forward(request, response);
+
 	       
 	    }
 
@@ -96,7 +148,7 @@ public class BookingController  extends HttpServlet{
 				request.setAttribute("message", "Booking Failed.");	
 			}
 			
-			RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/view/customer/booking.jsp");
+			RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/view/customer/bookingSeats.jsp");
             rd.forward(request, response);
 
 			

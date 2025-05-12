@@ -1,0 +1,67 @@
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css');
+
+.busybus_footer {
+  background-color: #0f0f0f;
+  color: white;
+  padding: 40px 20px 20px;
+  font-family: 'Lato', sans-serif;
+}
+
+.footer-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 30px;
+  max-width: 1200px;
+  margin: auto;
+  border-bottom: 1px solid #333;
+  padding-bottom: 20px;
+}
+
+.footer-left,
+.footer-middle,
+.footer-right {
+  flex: 1;
+  min-width: 220px;
+}
+
+.footer-left h2 {
+  color: #ffd700;
+  margin-bottom: 10px;
+}
+
+.footer-middle ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-middle ul li {
+  margin-bottom: 8px;
+}
+
+.footer-middle ul li a {
+  color: #ccc;
+  text-decoration: none;
+}
+
+.footer-middle ul li a:hover {
+  color: #fff;
+}
+
+.footer-social a {
+  margin-right: 10px;
+  color: #ccc;
+  font-size: 16px;
+  text-decoration: none;
+}
+
+.footer-social a:hover {
+  color: #ffd700;
+}
+
+.footer-bottom {
+  text-align: center;
+  margin-top: 20px;
+  font-size: 14px;
+  color: #999;
+}

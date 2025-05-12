@@ -10,6 +10,9 @@ public class Booking {
 	private String travelDate;
 	private String bookingStatus;
     private String paymentStatus;
+    private String startLocation;
+    private String endLocation;
+
 	
 	
 //	public Booking(int bookingId, int customerId, int busId, String seats, double totalPrice, String travelDate, String bookingStatus, String paymentStatus) {
@@ -22,7 +25,19 @@ public class Booking {
 //		this.bookingStatus = bookingStatus;
 //		this.paymentStatus = paymentStatus;
 //	}
-	
+    public String getStartLocation() {
+        return startLocation;
+    }
+    public void setStartLocation(String startLocation) {
+        this.startLocation = startLocation;
+    }
+    public String getEndLocation() {
+        return endLocation;
+    }
+    public void setEndLocation(String endLocation) {
+        this.endLocation = endLocation;
+    }
+
 
     public int getBookingId() {
 		return bookingId;

@@ -10,9 +10,8 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
-import model.Customer;
 import util.DBConnection;
-
+import model.customer.Customer;
 
 
 
@@ -33,8 +32,8 @@ public class AuthController extends HttpServlet{
 	protected  void doPost(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
 		
 		
-		String firstName = req.getParameter("first_name");
-		String lastName = req.getParameter("last_name");
+		String firstName = req.getParameter("first_Name");
+		String lastName = req.getParameter("last_Name");
 		String  email = req.getParameter("email");
 		String phone= req.getParameter("phoneNumber");
 		String password = req.getParameter("password");
@@ -42,7 +41,7 @@ public class AuthController extends HttpServlet{
 		try {
 			Connection conn = DBConnection.getInstance().getConnection();
 			
-			String sql = "INSERT INTO customers (first_name, last_name, email, phoneNumber, password) VALUES (?, ?, ?, ?, ?)";
+			String sql = "INSERT INTO customers (first_Name, last_Name, email, phoneNumber, password) VALUES (?, ?, ?, ?, ?)";
 
 			PreparedStatement stmt = conn.prepareStatement(sql);
 			
@@ -67,13 +66,13 @@ public class AuthController extends HttpServlet{
 					  HttpSession session = req.getSession();
 					  session.setAttribute("cust_id", rs.getInt("cust_id"));
 //					  session.setAttribute("cust_id", rs.getInt("cust_id"));
-				        session.setAttribute("first_name", rs.getString("first_name"));
-				        session.setAttribute("last_name", rs.getString("last_name"));
+				        session.setAttribute("first_Name", rs.getString("first_Name"));
+				        session.setAttribute("last_Name", rs.getString("last_Name"));
 				        session.setAttribute("email", rs.getString("email"));
 				        session.setAttribute("phoneNumber", rs.getString("phoneNumber"));
 					  session.setAttribute("password", rs.getInt("password"));
 				        
-					  res.sendRedirect("Homepage.html");
+					  res.sendRedirect("Homepage.jsp");
 
 					  
 				  }else {

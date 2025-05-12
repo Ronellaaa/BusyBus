@@ -1,7 +1,9 @@
 <%@ page session="true" %>
 <%
-    String firstName = (String) session.getAttribute("first_name");
+    String firstName = (String) session.getAttribute("name");
 %>
+
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -25,67 +27,32 @@
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
   </head>
   <body>
+  
+  
     <div class="home">
-      <!-- 🔹 HEADER -->
-      <div class="container2">
-        <div class="logo">
-          <img src="./assets/ba.png" alt="logo image" />
-        </div>
-        <nav>
-          <ul>
-            <li>
-              <a href="/home" class="link"> Home </a>
-              <a href="/about" class="link"> About Us </a>
-              <a href="/menu" class="link"> Products </a>
-              <a href="/contact" class="link"> Contact Us </a>
-            </li>
-          </ul>
-        </nav>
-      <div class="login-button">
-    <% if (firstName != null) { %>
-        <a href="Profile.jsp">
-            <button class="btn-login">
-                <i class="fa-solid fa-user"></i> Profile
-            </button>
-        </a>
-        <a href="LogoutServlet">
-            <button class="btn-login">
-                Logout
-            </button>
-        </a>
-    <% } else { %>
-        <a href="sign-up">
-            <button class="btn-login">
-                <i class="fa-solid fa-user"></i> Sign Up
-            </button>
-        </a>
-        <a href="login.jsp">
-            <button class="btn-login">
-                <i class="fa-solid fa-user"></i> Login
-            </button>
-        </a>
-    <% } %>
-</div>
-        </div>
-      </div>
-      </div>
+   
+ <jsp:include page="/Navbar.jsp"/>
 
       <!-- 🔹 SECTION 1: HERO VIDEO + SEARCH -->
       <section class="hero-video-section1">
         <video autoplay muted loop playsinline class="hero-video">
-          <source src="assets/b1.mp4" type="video/mp4" />
+      <source src="<%= request.getContextPath() %>/assets/b1.mp4" type="video/mp4" />
         </video>
 
         <div class="overlay-text">
           <div class="text-animation-container">
             <div class="text2 split">
-     <!--    <h2>Welcome, <%= session.getAttribute("first_Name") %>!</h2>--> 
+        
     
               Ride Smart. Travel Easy. Reserve Your Seat Today 🌍 
             </div>
           </div>
           <div class="ovalay-1">
             <h2>Fast, Easy, Bookings</h2>
+          <form action="book-seat" method="get">
+             <input type="hidden" name="busId" value="1" />
+             <button type="submit"  class="cta-button">Book Your seat <%= session.getAttribute("name") %>!</button>
+            </form>
             <div class="search-wrapper">
               <div class="search-tab">
                 <span
@@ -125,7 +92,8 @@
       <section class="main-container">
         <div class="ticket-card">
           <div class="ticket-header">
-            <img src="assets/bus4.png" alt="Luxury Bus" class="places" />
+          <img src="${pageContext.request.contextPath}/assets/bus4.png" alt="LuxuryBus">
+
             <div class="rating"><i class="fa-solid fa-star"></i> 4.9</div>
             <h3>Luxury Linear</h3>
           </div>
@@ -157,8 +125,11 @@
             <span>Reclining Seats</span>
             <span>Snacks</span>
           </div>
-
+      <form action="book-seat" method="get">
+      <input type="hidden" name="busId" value="1" />
+      
           <button class="book-now">Book Now</button>
+          </form>
         </div>
           <!-- Central glass panel -->
       <div class="dashboard-section">
@@ -197,7 +168,7 @@
           <h1 class="background-text">EXPRESS</h1>
 
           <div class="bus-image-wrapper">
-            <img id="bus-image" src="assets/bus4.png" alt="Bus Image" />
+            <img id="bus-image" src="${pageContext.request.contextPath}/assets/bus4.png" alt="Bus Image" />
           </div>
 
           <div class="bus-color-picker">
@@ -247,7 +218,7 @@
         <!-- 🔸 Background Masked Video -->
         <div class="map-mask-wrapper">
           <video autoplay muted loop playsinline class="map-video">
-            <source src="assets/map.mp4" type="video/mp4" />
+            <source src="${pageContext.request.contextPath}/assets/map.mp4" type="video/mp4" />
           </video>
         </div>
 
@@ -259,7 +230,7 @@
           immersive bus rides.
         </p>
         <div class="rocket-wrapper">
-          <img src="assets/startup.png" class="rocket" alt="Rocket" />
+          <img src="${pageContext.request.contextPath}/assets/startup.png" class="rocket" alt="Rocket" />
         </div>
 
         <div class="feature-cards">
@@ -282,10 +253,16 @@
             <p>Book in seconds. Get digital tickets directly to your device.</p>
           </div>
         </div>
-
-        <a href="#booking" class="cta-button">Start Your Journey</a>
+        <form action="book-seat" method="get">
+         <input type="hidden" name="busId" value="1" />
+        <button  class="cta-button">Start Your Journey</button>
+        
+     </form>
       </section>
     </div>
+
+      <jsp:include page="/footer.jsp" /> 
+     
 
     <!-- Scripts remain the same -->
 
