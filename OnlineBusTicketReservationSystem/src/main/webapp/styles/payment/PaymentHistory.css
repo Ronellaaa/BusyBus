@@ -21,6 +21,35 @@ body {
   box-shadow: 0 0 10px rgba(0,0,0,0.2);
 }
 
+.close-button  a{
+	text-decoration:none;
+	color:white;
+}
+
+   .close-button {
+      display: inline-block;
+      padding: 10px 20px;
+      font-size: 18px;
+      font-weight: bold;
+      color: white;
+      background: #e74c3c;
+      border: none;
+      border-radius: 8px;
+      box-shadow: 0 5px #c0392b;
+      text-decoration: none;
+      transition: all 0.2s ease;
+      cursor: pointer;
+    }
+
+    .close-button:active {
+      box-shadow: 0 2px #c0392b;
+      transform: translateY(3px);
+    }
+
+    .close-button:hover {
+      background: #c0392b;
+    }
+
 table {
   width: auto;
   border-spacing: 0;

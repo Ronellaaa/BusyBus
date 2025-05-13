@@ -60,7 +60,7 @@ window.addEventListener("DOMContentLoaded", () => {
 	    const gender = prompt(`Select gender for seat ${number} (M/F):`);
 	   
 	    if (gender && (gender.toUpperCase() === "M" || gender.toUpperCase() === "F") ) {
-	      selectedSeats.push(`${number}-${gender.toUpperCase()}}`);
+	      selectedSeats.push(`${number}-${gender.toUpperCase()}`);
 	      seat.disabled = true;
 	      seat.classList.add("selected-seat");
 	      updateDetails();

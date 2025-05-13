@@ -62,7 +62,7 @@ public class UpdateBookingServlet extends HttpServlet {
 		bookingService.updateBooking(bookingID, status);
 		
 		//After updation redirecting back to the index.jsp
-		response.sendRedirect(request.getContextPath() + "/index.jsp");
+		response.sendRedirect(request.getContextPath() + "/WEB-INF/view/payment/PaymentTable.jsp");
 		
 		//RequestDispatcher dispatcher = request.getRequestDispatcher("/index.jsp");
 		//dispatcher.forward(request, response);

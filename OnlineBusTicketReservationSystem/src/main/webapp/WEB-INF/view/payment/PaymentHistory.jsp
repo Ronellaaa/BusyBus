@@ -19,6 +19,8 @@
 <title>Payment Management</title>
 </head>
 <body>
+<jsp:include page="/Navbar.jsp" />
+
 <%	
 	//Fetch payments of the concerned client
 	ArrayList <Payment> paymentList  = (ArrayList)request.getAttribute("payList");
@@ -28,7 +30,8 @@
 		paymentList = new ArrayList<Payment>(); // Empty list if null
 	}
 %>
-
+<br><br>
+<button class="close-button"><a href="Homepage.jsp">X</a></button>
 <div class="table-container">
     <table>
         <thead>

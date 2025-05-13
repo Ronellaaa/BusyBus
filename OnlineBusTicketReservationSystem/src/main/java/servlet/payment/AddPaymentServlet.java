@@ -8,6 +8,8 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
+
 import java.io.IOException;
 
 import model.payment.Payment;
@@ -62,10 +64,17 @@ public class AddPaymentServlet extends HttpServlet {
 	    //Add the payment to the database
 	    paymentService.addpayment(payment);
 	    
+	    //HttpSession session = request.getSession();
+	    
+	    //Store notification in session variable
+        //session.setAttribute("payment", payment);
+	    
 	    // to share with getPaymentHistoryServlet
 	    request.setAttribute("payment", payment);
 	    
-	    // Forward to getPaymentHistoryServlet
+	    //response.sendRedirect(request.getContextPath() + "/WEB-INF/view/customer/profile.jsp"); //Redirect to profile.jsp
+	    
+	    // Forward to profile.jsp
 	    RequestDispatcher dispatcher = request.getRequestDispatcher("/getPaymentHistoryServlet");
 		dispatcher.forward(request, response);
 	}

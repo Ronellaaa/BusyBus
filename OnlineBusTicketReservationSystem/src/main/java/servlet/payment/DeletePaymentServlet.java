@@ -53,7 +53,7 @@ public class DeletePaymentServlet extends HttpServlet {
 	    if (referer != null && !referer.isEmpty()) {
 	        response.sendRedirect(referer);
 	    } else {
-	        response.sendRedirect(request.getContextPath() + "/index.jsp");
+	        response.sendRedirect(request.getContextPath() + "/WEB-INF/view/payment/PaymentTable.jsp");
 	    }
 	}
 

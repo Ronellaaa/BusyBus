@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@page import="model.payment.Payment"%>
 <!DOCTYPE html>
 <html>
 
@@ -17,11 +18,16 @@
 </head>
 
 <body>
+<%
+	Payment payment  = (Payment)request.getAttribute("payment");
+
+
+%>
 <form method="POST" action="AddPaymentServlet">
 	<div class="payment-container">
 	        <h2>Complete Your Booking</h2>
 	        
-	        <input type="hidden" name="bookingId" value="3">
+	        <input type="hidden" name="bookingId" value=<%=payment.getBookingId()%>>
 	        
 	        <div id="card-details-section">
 	            
@@ -53,7 +59,7 @@
 	            
 	        </div>
 	        
-	        <input type="hidden" name="amount" value="100">
+	        <input type="hidden" name="amount" value=<%=payment.getAmount()%>>
 	        
 	        <!-- Terms and Submit Button -->
 	       <div class="terms">
@@ -62,7 +68,7 @@
 	           </label>
 	       </div>
 	       
-	       <input id="pay-button"  class="pay-button" type="submit" value="Proceed to Pay $60.00" disabled>
+	       <input id="pay-button"  class="pay-button" type="submit" value="Proceed to Pay <%=payment.getAmount()%>" disabled>
       </div>
   </form>
   
