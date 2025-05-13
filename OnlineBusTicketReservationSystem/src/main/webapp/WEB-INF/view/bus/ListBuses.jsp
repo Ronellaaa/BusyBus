@@ -20,10 +20,28 @@
 </head>
 <body>
 
-	<!--  Delete success popup (auto-fades) -->
+	<%-- <!--  Delete success popup (auto-fades) -->
 	<c:if test="${param.message == 'deleteSuccess'}">
 		<div class="popup">Bus was successfully deleted.</div>
 	</c:if>
+	
+		<!--  update success popup (auto-fades) -->
+	<c:if test="${param.message == 'addSuccess'}">
+		<div class="popup" id="">Bus was successfully updated.</div>
+	</c:if> --%>
+
+	<c:if test="${param.message == 'deleteSuccess'}">
+		<div class="popup success">Bus was successfully deleted.</div>
+	</c:if>
+
+	<c:if test="${param.message == 'addSuccess'}">
+		<div class="popup success">Bus was successfully added.</div>
+	</c:if>
+
+	<c:if test="${param.message == 'updateSuccess'}">
+		<div class="popup success">Bus was successfully updated.</div>
+	</c:if>
+
 
 	<!-- === Bus Details Section === -->
 	<div class="table-header" id="list-details">
@@ -34,21 +52,18 @@
 				href="BopDashboardServlet" class="dashboard-btn">Go to Dashboard</a>
 		</div>
 	</div>
-	
+
 	<!-- === Bus Search Filter Form === -->
 	<form action="SearchBusServlet" method="get" class="filter-form">
-		<input type="text" name="busName" placeholder="Search by name..." class="filter-input"/>
-
-		<select name="busType" class="filter-select">
+		<input type="text" name="busName" placeholder="Search by name..."
+			class="filter-input" /> <select name="busType" class="filter-select">
 			<option value="">All Types</option>
 			<option value="AC">AC</option>
 			<option value="Non-AC">Non-AC</option>
 			<option value="Luxury">Luxury</option>
 			<option value="Semi-Luxury">Semi-Luxury</option>
 			<option value="Normal">Normal</option>
-		</select>
-
-		<select name="isActive" class="filter-select">
+		</select> <select name="isActive" class="filter-select">
 			<option value="">All Status</option>
 			<option value="true">Active</option>
 			<option value="false">Inactive</option>
@@ -56,7 +71,7 @@
 
 		<button type="submit" class="dashboard-btn">Search</button>
 	</form>
-	
+
 	<!--  Enable action buttons (Edit/Delete) -->
 	<%
 	request.setAttribute("showActions", true);
@@ -77,7 +92,7 @@
 		</div>
 	</div>
 
-<script src="${pageContext.request.contextPath}/js/bus/ListBuses.js"></script>
+	<script src="${pageContext.request.contextPath}/js/bus/ListBuses.js"></script>
 
 
 </body>

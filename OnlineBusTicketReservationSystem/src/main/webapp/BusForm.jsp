@@ -108,7 +108,7 @@
 						<input type="submit" value="Submit" />
 					</div>
 					<div class="button2">
-						<input type="reset" value="Cancel" />
+						<input type="reset" value="Cancel" onclick="window.location.href='ListBusServlet'"  />
 					</div>
 				</div>
 			</form>

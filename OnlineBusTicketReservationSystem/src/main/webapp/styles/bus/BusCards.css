@@ -9,7 +9,8 @@ body {
   padding: 20px;
     background-image: url('../../assets/buses-bus-terminal-valletta.jpg'); 
   background-size: cover;
-  height: 100vh;
+  min-height: 100vh;
+  background-attachment: fixed;
   background-position: center;
   background-repeat: no-repeat;
 }

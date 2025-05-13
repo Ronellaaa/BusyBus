@@ -18,19 +18,21 @@
 	<c:if test="${param.message == 'addSuccess'}">
 		<div class="popup" id="">Bus was successfully updated.</div>
 	</c:if>
-	
+
 	<!-- ===== Header Bar ===== -->
-	<div class="header-bar">
-		<div class="brand-container">
-			<div class="brand-name">BusyBus</div>
-		</div>
-
-		<div class="header-actions">
-
-			<div class="user-profile">
-				<div class="user-avatar">BoP1</div>
+	<a href="Homepage.jsp" class="brand-link">
+		<div class="header-bar">
+			<div class="brand-container">
+				<div class="brand-name">BusyBus</div>
 			</div>
+	</a>
+
+	<div class="header-actions">
+
+		<div class="user-profile">
+			<div class="user-avatar">BoP1</div>
 		</div>
+	</div>
 	</div>
 
 	<!-- ===== Sidebar Navigation ===== -->
@@ -38,16 +40,27 @@
 		<a class="nav-item active" href="#dashboard">
 			<div class="nav-icon">📊</div>
 			<div class="nav-label">Dashboard</div>
-		</a> <a class="nav-item" href="#bus-details">
+		</a> 
+		<a class="nav-item" href="#bus-details">
 			<div class="nav-icon">🚎</div>
 			<div class="nav-label">Bus Details</div>
-		</a> <a class="nav-item" href="ListBusServlet">
+		</a> 
+		<a class="nav-item" href="ListBusServlet">
 			<div class="nav-icon">📝</div>
-			<div class="nav-label">Edit/Update</div>
-		</a> <a class="nav-item" href="BusCardsServlet">
+			<div class="nav-label">Edit/Delete</div>
+		</a> 
+		<a class="nav-item" href="BusCardsServlet">
 			<div class="nav-icon">👥</div>
 			<div class="nav-label">Customer View</div>
 		</a>
+		<div style="flex-grow: 1;"></div>
+		<!-- pushes logout to bottom -->
+
+		<a class="nav-item logout-item"  href="javascript:void(0);" onclick="showLogoutModal()">
+			<div class="nav-icon">🚪</div>
+			<div class="nav-label">Logout</div>
+		</a>
+
 	</div>
 
 	<!-- ===== Main Content Section ===== -->
@@ -96,7 +109,8 @@
 					<div class="stat-icon green-gradient">⏰</div>
 					<div class="stat-title">Upcoming Departures</div>
 					<div class="stat-value">${upcomingDeparturesToday}</div>
-					<div class="stat-badge badge-green">Your Upcoming Departures Today!</div>
+					<div class="stat-badge badge-green">Your Upcoming Departures
+						Today!</div>
 				</div>
 
 				<!-- Bus Types in Fleet -->
@@ -121,9 +135,21 @@
 		<c:set var="showActions" value="false" />
 		<c:import url="/WEB-INF/view/partials/BusTable.jsp" />
 
+
+		<!-- Logout Confirmation Modal -->
+		<div id="logoutModal" class="modal">
+			<div class="modal-content">
+				<p>Are you sure you want to logout?</p>
+				<button class="action-button cancel-btn"
+					onclick="closeLogoutModal()">Cancel</button>
+				<button class="action-button delete-btn" onclick="confirmLogout()">Yes,
+					Logout</button>
+			</div>
+		</div>
+
+
 		<!-- Custom JavaScript for dashboard functionality -->
-	<script src="${pageContext.request.contextPath}/js/bus/BopDashboard.js"></script>
- 
- 
- </body>
+		<script
+			src="${pageContext.request.contextPath}/js/bus/BopDashboard.js"></script>
+</body>
 </html>

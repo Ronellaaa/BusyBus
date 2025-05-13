@@ -1,7 +1,5 @@
-
- @charset "UTF-8";
-
-@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+@charset "UTF-8";
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap");
 
 * {
   margin: 0;
@@ -10,27 +8,27 @@
   font-family: "Poppins", "Inter", system-ui, sans-serif;
 }
 
-/* Style for the filter search container */
-/* Filter Form - Styled to Match Table */
+/* --- Filter Search Form Styling --- */
 .filter-form {
   display: flex;
-  gap: 15px;
+  flex-wrap: wrap;
   align-items: center;
   justify-content: center;
-  flex-wrap: wrap;
+  gap: 15px;
   padding: 15px 20px;
   margin: 0 auto 20px auto;
   max-width: 100%;
   border-radius: 8px;
-  background-color: rgba(255, 255, 255, 0.4); /* translucent white */
+  background-color: rgba(255, 255, 255, 0.4);
   backdrop-filter: blur(6px);
   -webkit-backdrop-filter: blur(6px);
   border: 1px solid rgba(255, 255, 255, 0.25);
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+  opacity: 0;
+  transform: translateY(-10px);
+  animation: fadeSlideIn 0.6s ease forwards;
 }
 
-
-/* Inputs, Selects & Button - Integrated Look */
 .filter-form .filter-input,
 .filter-form .filter-select,
 .filter-form .filter-button {
@@ -42,8 +40,6 @@
   color: #1a2542;
   font-weight: 500;
   letter-spacing: 0.3px;
-  margin-top: 8px;
-  margin-bottom: 8px;
   transition: box-shadow 0.3s ease, background-color 0.2s ease;
 }
 
@@ -63,13 +59,6 @@
   background-color: #3158c0;
 }
 
-/* Entrance Animation */
-.filter-form {
-  opacity: 0;
-  transform: translateY(-10px);
-  animation: fadeSlideIn 0.6s ease forwards;
-}
-
 @keyframes fadeSlideIn {
   to {
     opacity: 1;
@@ -77,40 +66,38 @@
   }
 }
 
-
+/* --- Body Background & Overlay --- */
 body {
   background-image: url('/OnlineBusTicketReservationSystem/assets/buses-bus-terminal-valletta.jpg');
   background-repeat: no-repeat;
   background-position: center center;
   background-attachment: fixed;
   background-size: cover;
-  background-size: cover;
   min-height: 100vh;
   position: relative;
   z-index: 0;
 }
 
-body::before { /* Dark overlay effect */
+body::before {
   content: "";
   position: fixed;
-  top: 0; left: 0; right: 0; bottom: 0;
+  inset: 0;
   background: rgba(0, 0, 0, 0.4);
   z-index: 0;
 }
 
-body > * { /* Bring content above overlay */
+body > * {
   position: relative;
   z-index: 1;
 }
 
+/* --- Table Header (Top Area) --- */
 .table-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
   margin-bottom: 20px;
-  padding-top: 20px;
-  padding-left: 20px;
-  padding-right: 20px;
+  padding: 20px;
 }
 
 .l-title {
@@ -138,26 +125,32 @@ body > * { /* Bring content above overlay */
   background-color: #4169e1;
 }
 
+/* --- Toast Popup Notification --- */
 .popup {
   position: fixed;
   top: 20px;
   left: 50%;
   transform: translateX(-50%);
-  background-color: #4CAF50;
+  background-color: #4caf50;
   color: white;
   padding: 15px 25px;
   border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   z-index: 1000;
   animation: fadeOut 3s ease-in-out forwards;
 }
 
 @keyframes fadeOut {
-  0% { opacity: 1; }
-  70% { opacity: 1; }
-  100% { opacity: 0; display: none; }
+  0%, 70% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    display: none;
+  }
 }
 
+/* --- Bus Table Styling --- */
 .bus-table-container {
   background-color: rgba(255, 255, 255, 0.85);
   padding: 25px;
@@ -186,10 +179,11 @@ body > * { /* Bring content above overlay */
 }
 
 .bus-table th {
-  font-weight: 600;
+  font-weight: 800;       
+  font-size: 16px;        
   text-transform: uppercase;
-  font-size: 13px;
-  color: #555;
+  color: #333;             
+  background-color: #f0f5ff;
 }
 
 .status-active {
@@ -202,9 +196,12 @@ body > * { /* Bring content above overlay */
   font-weight: 600;
 }
 
+/* --- Action Buttons in Table Cell --- */
 .action-cell {
   display: flex;
   justify-content: center;
+  align-items: center;
+  flex-wrap: wrap; /* allow buttons to go to next line if needed */
   gap: 8px;
 }
 
@@ -219,7 +216,7 @@ body > * { /* Bring content above overlay */
   font-size: 14px;
   padding: 6px 12px;
   cursor: pointer;
-  transition: background-color 0.2s ease;
+  transition: background-color 0.2s ease, color 0.2s ease;
 }
 
 .edit-btn:hover {
@@ -234,14 +231,12 @@ body > * { /* Bring content above overlay */
   color: #dc3545;
 }
 
+/* --- Modal Styling (Delete Confirm) --- */
 .modal {
   display: none;
   position: fixed;
   z-index: 999;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
+  inset: 0;
   background-color: rgba(0, 0, 0, 0.4);
   justify-content: center;
   align-items: center;
@@ -270,9 +265,7 @@ body > * { /* Bring content above overlay */
   padding: 10px 20px;
   border-radius: 8px;
   font-size: 14px;
-  cursor: pointer;
   margin: 0 8px;
-  transition: background-color 0.2s ease, transform 0.2s ease;
 }
 
 .modal-content .delete-btn {
@@ -297,5 +290,12 @@ body > * { /* Bring content above overlay */
   transform: scale(1.05);
 }
 
-
- 
+.popup.success {
+  background-color: #4caf50; /* Green for success */
+}
+.popup.error {
+  background-color: #dc3545; /* Red for errors */
+}
+.popup.info {
+  background-color: #2196f3; /* Blue for info */
+}
