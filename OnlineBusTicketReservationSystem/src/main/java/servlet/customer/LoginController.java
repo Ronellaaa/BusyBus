@@ -65,7 +65,7 @@ public class LoginController extends HttpServlet {
                     session.setAttribute("role", "Kalum");
                     session.setAttribute("name", "Bus Operator");
                     valid = true;
-                    redirectPage = "BopDashboard.jsp";
+                    redirectPage = "BopDashboardServlet";
                 } else if ("financer".equals(role) && email.equals("visakya@gmail.com") && password.equals("123")) {
                     session.setAttribute("role", "financer");
                     session.setAttribute("name", "Samayanthie");
