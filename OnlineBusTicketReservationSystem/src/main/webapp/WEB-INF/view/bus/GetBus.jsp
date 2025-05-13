@@ -2,6 +2,7 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ page import="model.bus.Bus"%>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -9,10 +10,12 @@
 <title>Edit Bus</title>
 <link rel="stylesheet" href="styles/bus/GetBus.css" />
 </head>
+
 <body>
- 
+
 
 	<div class="busForm">
+
 		<div class="container">
 			<div class="title">Edit Bus Details</div>
 
@@ -103,10 +106,13 @@
 					<div class="button2">
 						<input type="reset" value="Reset" />
 					</div>
+
+					<div class="button3">
+						<a href="ListBusServlet"
+							class="back-button-link"> ← Back to Bus Details List </a>
+					</div>
 				</div>
 			</form>
-
-			
 
 			<%
 			}
@@ -115,8 +121,8 @@
 	</div>
 
 	<c:if test="${not empty updateSuccess}">
-    <div id="toast" class="toast">Bus successfully updated!</div>
-    <script>
+		<div id="toast" class="toast">Bus successfully updated!</div>
+		<script>
         const toast = document.getElementById("toast");
         toast.classList.add("show");
 
@@ -125,9 +131,9 @@
             window.location.href = "BopDashboard.jsp";
         }, 1500);
     </script>
-</c:if>
+	</c:if>
 
-	<script src=js/bus/GetBus.js"></script>
-	
+	<script src="${pageContext.request.contextPath}/js/bus/GetBus.js"></script>
+
 </body>
 </html>

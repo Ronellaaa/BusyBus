@@ -14,10 +14,27 @@
 	height: 100vh;
 	justify-content: center;
 	align-items: center;
-	background-image: url('../../assets/buses-bus-terminal-valletta.jpg');
+	
 	background-size: cover;
 	background-position: center;
 	background-repeat: no-repeat;
+}
+
+/* Background image with blur */
+.busForm::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('../../assets/buses-bus-terminal-valletta.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    filter: blur(2px); /* Increase this for more blur */
+    z-index: -1;
+    transform: scale(1.1); /* Avoid edge clipping from blur */
 }
 
 /* Container Styles */
@@ -160,92 +177,53 @@ input:checked+.slider:before {
 }
 
 /* Button Styles */
-form .button1, form .button2 {
-	height: 45px;
-	width: 100%;
-	max-width: 300px;
-	margin: 0;
+form .button1,
+form .button2,
+form .button3 {
+    height: 45px;
+    width: 100%;
+    max-width: 300px;
+    margin: 0;
 }
 
-form .button1 input, form .button2 input {
-	height: 100%;
-	width: 100%;
-	outline: none;
-	border-radius: 10px;
-	color: #fff;
-	border: none;
-	font-size: 16px;
-	font-weight: 600;
-	letter-spacing: 1px;
-	cursor: pointer;
+form .button1 input,
+form .button2 input,
+form .button3 button {
+    height: 100%;
+    width: 100%;
+    outline: none;
+    border-radius: 10px;
+    color: #fff;
+    border: none;
+    font-size: 16px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    cursor: pointer;
 }
 
-/* Delete Button Styles */
-.button-delete {
-	height: 45px;
-	width: 100%;
-	max-width: 300px;
-	margin: 0;
-	padding: 10px; /* shorthand for all sides */
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	justify-content: center;
-	width: 100%;
-}
-
-.button-delete input {
-	height: 100%;
-	width: 100%;
-	outline: none;
-	border-radius: 10px;
-	color: #fff;
-	border: none;
-	font-size: 16px;
-	font-weight: 600;
-	letter-spacing: 1px;
-	cursor: pointer;
-	background-color: #dc3545;
-}
-
-.button-delete input:hover {
-	background-color: #a71d2a;
-}
-
+/* Individual colors */
 form .button1 input {
-	background-color: #F07167;
+    background-color: #F07167;
 }
-
 form .button1 input:hover {
-	background-color: #df4136;
+    background-color: #df4136;
 }
 
 form .button2 input {
-	background-color: #3b3a3a;
+    background-color: #3b3a3a;
 }
-
 form .button2 input:hover {
-	background-color: #130a09;
+    background-color: #130a09;
 }
 
-/* Responsive Styles */
-@media ( max-width : 584px) {
-	.container {
-		max-width: 100%;
-	}
-	form .busDetails .input-box {
-		margin-bottom: 15px;
-		width: 100%;
-	}
-	.container form .busDetails {
-		max-height: 300px;
-		overflow-y: scroll;
-	}
-	form .button1, form .button2
-     .button-delete {
-		max-width: none;
-	}
+form .button3 button {
+    background-color: #6878ca;
+    font-family: "Poppins", sans-serif;
 }
+form .button3 button:hover {
+    background-color: #5992b8;
+}
+
 
 /* Overlay that covers the entire screen */
 .overlay {
@@ -260,3 +238,23 @@ form .button2 input:hover {
 	align-items: center; /* Center vertically */
 	z-index: 9999;
 }
+
+.back-button-link {
+  display: block;
+  text-align: center;
+  text-decoration: none;
+  background-color: #6878ca;
+  color: white;
+  font-size: 16px;
+  font-weight: 600;
+  border-radius: 10px;
+  padding: 12px 0;
+  max-width: 300px;
+  width: 100%;
+  transition: background-color 0.3s;
+}
+
+.back-button-link:hover {
+  background-color: #5992b8;
+}
+

@@ -1,3 +1,4 @@
+<!-- Layout inspired by CodeInfoWeb's Food Dashboard tutorial: https://www.codeinfoweb.com/make-food-dashboard-html-css/ -->
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
@@ -30,7 +31,13 @@
 	<div class="header-actions">
 
 		<div class="user-profile">
-			<div class="user-avatar">BoP1</div>
+			<div class="user-avatar">
+    <video class="avatar-video" autoplay muted loop playsinline>
+        <source src="assets/busopvid.mp4" type="video/mp4" />
+        Your browser does not support the video tag.
+    </video>
+</div>
+
 		</div>
 	</div>
 	</div>

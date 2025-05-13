@@ -20,26 +20,9 @@
 </head>
 <body>
 
-	<%-- <!--  Delete success popup (auto-fades) -->
+	 <!--  Delete success popup (auto-fades) -->
 	<c:if test="${param.message == 'deleteSuccess'}">
 		<div class="popup">Bus was successfully deleted.</div>
-	</c:if>
-	
-		<!--  update success popup (auto-fades) -->
-	<c:if test="${param.message == 'addSuccess'}">
-		<div class="popup" id="">Bus was successfully updated.</div>
-	</c:if> --%>
-
-	<c:if test="${param.message == 'deleteSuccess'}">
-		<div class="popup success">Bus was successfully deleted.</div>
-	</c:if>
-
-	<c:if test="${param.message == 'addSuccess'}">
-		<div class="popup success">Bus was successfully added.</div>
-	</c:if>
-
-	<c:if test="${param.message == 'updateSuccess'}">
-		<div class="popup success">Bus was successfully updated.</div>
 	</c:if>
 
 
