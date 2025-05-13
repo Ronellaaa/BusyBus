@@ -42,7 +42,7 @@ public class ViewBookingsController extends HttpServlet {
                  booking.setBusId(rs.getInt("bus_id"));
                  booking.setSeats(rs.getString("seats"));
                  booking.setTotalPrice(rs.getDouble("total_price"));
-                 booking.setTravelDate(rs.getString("travel_date"));
+                 booking.setJourneyDate(rs.getString("journeyDate"));
                  booking.setBookingStatus(rs.getString("bookingStatus"));
                  booking.setPaymentStatus(rs.getString("paymentStatus"));
                  bookingList.add(booking);

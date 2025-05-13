@@ -62,7 +62,7 @@
         <td><%= b.getBusId() %></td>
         <td><%= b.getSeats() %></td>
         <td><%= b.getTotalPrice() %></td>
-        <td><%= b.getTravelDate() %></td>
+       <%--  <td><%= b.getJourneyDate() %></td> --%>
         <td><%= b.getBookingStatus() %></td>
         <td><%= b.getPaymentStatus() %></td>
     </tr>

@@ -84,6 +84,8 @@
       <tr>
         <th>Booking ID</th>
         <th>Route</th>
+         <th>Bus</th>
+         <th>Bus Type</th>
         <th>Date</th>
         <th>Seat</th>
         <th>Status</th>
@@ -95,8 +97,11 @@
       %>
        <tr>
         <td><%= b.getBookingId() %></td>
-        <td><%= b.getStartLocation() %> → <%= b.getEndLocation() %></td>
-        <td><%= b.getTravelDate() %></td>
+        <td><%= b.getBusRouteName() %></td>
+        <td><%= b.getBus().getBusName() %></td>
+        <td><%= b.getBus().getBusType() %></td>
+     
+        <td><%= b.getJourneyDate() %></td>
         <td><%= b.getSeats() %></td>
         <td class="status-<%= b.getBookingStatus().toLowerCase() %>"><%= b.getBookingStatus() %></td>
       </tr>

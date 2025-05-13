@@ -49,10 +49,12 @@
           </div>
           <div class="ovalay-1">
             <h2>Fast, Easy, Bookings</h2>
-          <form action="book-seat" method="get">
-             <input type="hidden" name="busId" value="1" />
+          <!-- <form action="book-seat" method="get">
+             <input type="hidden" name="busId" value="1" /> -->
+             <a href="BusCardsServlet">
              <button type="submit"  class="cta-button">Book Your seat <%= session.getAttribute("name") %>!</button>
-            </form>
+             </a>
+           <!--  </form> -->
             <div class="search-wrapper">
               <div class="search-tab">
                 <span

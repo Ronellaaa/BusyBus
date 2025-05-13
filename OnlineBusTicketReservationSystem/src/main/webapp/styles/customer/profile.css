@@ -138,52 +138,88 @@
       }
 
       /* Bookings table */
-      .bookings-table {
-        width: 90%;
-        max-width: 900px;
-        border-collapse: collapse;
-        background: rgba(255, 255, 255, 0.05);
-        box-shadow: 0 0 20px rgba(0, 255, 255, 0.1);
-        border-radius: 12px;
-        overflow: hidden;
-        
-      }
+    
+    
+    /* Bookings Table - Modern Frosted Glass Look */
+.bookings-table {
+  width: 90%;
+  max-width: 1000px;
+  margin: 20px auto;
+  border-collapse: no-collapse;
+ 
+  backdrop-filter: blur(12px);
+  background: rgba(255, 255, 255, 0.15);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  border-radius: 20px;
+  overflow: hidden;
+  padding: 10px;
+  animation: fadeInTable 1.2s ease;
 
-      .bookings-table th,
-      .bookings-table td {
-        padding: 14px 20px;
-        text-align: center;
-        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-      }
-      #bookedTickets {
-        margin-bottom: 20px;
-        color:#E94057;
-      }
-      .bookings-table th {
-        background: #111;
-        color: #E94057;
-        font-weight: bold;
-        font-size: 1.5rem;
-      }
+}
 
-      .bookings-table tr:last-child td {
-        border-bottom: none;
-      }
+@keyframes fadeInTable {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
 
-      .bookings-table td {
-        color: black;
-        font-size: 20px
-      }
+.bookings-table thead th {
+  background: rgba(0, 0, 0, 0.85);
+  color: #00f7ff;
+  font-size: 1.2rem;
+  text-transform: uppercase;
+  padding: 15px;
+  border-radius: 10px 10px 0 0;
+}
 
-      .status-confirmed {
-        color: #00ff90;
-        font-weight: bold;
-      }
+.bookings-table tbody tr {
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 12px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
 
-      .status-cancelled {
-        color: #ff4c4c;
-        font-weight: bold;
-      }
+.bookings-table tbody tr:hover {
+  transform: scale(1.015);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+}
+
+.bookings-table td {
+  padding: 18px;
+  color: #333;
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+.bookings-table td:first-child {
+  border-radius: 12px 0 0 12px;
+}
+
+.bookings-table td:last-child {
+  border-radius: 0 12px 12px 0;
+}
+
+.status-confirmed {
+  color: #28a745;
+  font-weight: bold;
+}
+
+.status-cancelled {
+  color: #dc3545;
+  font-weight: bold;
+}
+
+.status-pending {
+  color: #ff9800;
+  font-weight: bold;
+}
+    
+    
+    
       .illustration {
         position: absolute;
         top: -10%;

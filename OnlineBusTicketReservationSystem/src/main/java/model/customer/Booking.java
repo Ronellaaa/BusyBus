@@ -1,17 +1,24 @@
 package model.customer;
 
+import model.bus.Bus;
+
 public class Booking {
  
 	private int bookingId;
 	private int customerId;
 	private int busId;
+	private Bus bus ; 
+	
+
 	private String seats;
 	private double totalPrice;
-	private String travelDate;
+	private String journeyDate;
 	private String bookingStatus;
     private String paymentStatus;
-    private String startLocation;
-    private String endLocation;
+    private String busRouteName;
+   
+	private String seatType;
+    private int noSeats;
 
 	
 	
@@ -25,19 +32,31 @@ public class Booking {
 //		this.bookingStatus = bookingStatus;
 //		this.paymentStatus = paymentStatus;
 //	}
-    public String getStartLocation() {
-        return startLocation;
-    }
-    public void setStartLocation(String startLocation) {
-        this.startLocation = startLocation;
-    }
-    public String getEndLocation() {
-        return endLocation;
-    }
-    public void setEndLocation(String endLocation) {
-        this.endLocation = endLocation;
-    }
+    
+    
+    public String getSeatType() {
+		return seatType;
+	}
+	public void setSeatType(String seatType) {
+		this.seatType = seatType;
+	}
+	public int getNoSeats() {
+		return noSeats;
+	}
+	public void setNoSeats(int noSeats) {
+		this.noSeats = noSeats;
+	}
 
+    
+    
+    
+    public String getBusRouteName() {
+        return busRouteName;
+    }
+    public void setBusRouteName(String busRouteName) {
+        this.busRouteName = busRouteName;
+    }
+ 
 
     public int getBookingId() {
 		return bookingId;
@@ -82,12 +101,12 @@ public class Booking {
 		this.totalPrice = totalPrice;
 	}
 
-	public String getTravelDate() {
-		return travelDate;
+	public String getJourneyDate() {
+		return journeyDate;
 	}
 
-	public void setTravelDate(String travelDate) {
-		this.travelDate = travelDate;
+	public void setJourneyDate(String travelDate) {
+		this.journeyDate = travelDate;
 	}
 	
 	public String getBookingStatus() {
@@ -106,6 +125,11 @@ public class Booking {
 		this.paymentStatus = paymentStatus;
 	}
 
-	
+	public Bus getBus() {
+		return bus;
+	}
+	public void setBus(Bus bus) {
+		this.bus = bus;
+	}
 
 }

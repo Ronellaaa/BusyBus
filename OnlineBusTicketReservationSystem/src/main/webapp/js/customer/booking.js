@@ -9,7 +9,8 @@ window.addEventListener("DOMContentLoaded", () => {
   const cardSeats = document.getElementById("cardSeats");
   const cardPrice = document.getElementById("cardPrice");
 
-  const pricePerSeat = parseFloat(priceInput.dataset.price) || 1000;
+  const pricePerSeat = typeof window.pricePerSeat !== "undefined" ? parseFloat(window.pricePerSeat) : 1000;
+
   const totalSeats = typeof window.totalSeats !== "undefined" ? parseInt(window.totalSeats) : 50;
 
   let selectedSeats = [];
@@ -47,26 +48,27 @@ window.addEventListener("DOMContentLoaded", () => {
     seat.innerText = number;
     seat.setAttribute("data-seat", number);
 
-    const isBooked = bookedSeats.includes(String(number));
+	const isBooked = bookedSeats.includes(String(number));
+
 
     if (isBooked) {
       seat.disabled = true;
       seat.classList.add("booked-seat"); // use CSS class to color gray
     }
-
-    seat.addEventListener("click", () => {
-      if (!isBooked && !selectedSeats.includes(number)) {
-        const gender = prompt(`Select gender for seat ${number} (M/F):`);
-        if (gender && (gender.toUpperCase() === "M" || gender.toUpperCase() === "F")) {
-          selectedSeats.push(`${number}-${gender.toUpperCase()}`);
-          seat.disabled = true;
-          seat.classList.add("selected-seat"); // change color to show reserved
-          updateDetails();
-        } else {
-          alert("Please enter M or F.");
-        }
-      }
-    });
+	seat.addEventListener("click", () => {
+	  if (!isBooked && !selectedSeats.some(s => s.startsWith(number + "-"))) {
+	    const gender = prompt(`Select gender for seat ${number} (M/F):`);
+	   
+	    if (gender && (gender.toUpperCase() === "M" || gender.toUpperCase() === "F") ) {
+	      selectedSeats.push(`${number}-${gender.toUpperCase()}}`);
+	      seat.disabled = true;
+	      seat.classList.add("selected-seat");
+	      updateDetails();
+	    } else {
+	      alert("Enter valid gender (M/F)");
+	    }
+	  }
+	});
 
     row.appendChild(seat);
   }
@@ -80,7 +82,12 @@ window.addEventListener("DOMContentLoaded", () => {
     totalPriceDisplay.innerText = total + " LKR";
     seatInput.value = selectedSeats.join(",");
     priceInput.value = total;
+	
+	const seatCountInput = document.getElementById("seatCountInput");
+	  seatCountInput.value = seatNumbersOnly.length;
 
+	document.getElementById("seatTypeInput").value = seatTypeLabel;
+	
     if (cardSeats) cardSeats.innerText = "Seats: " + seatNumbersOnly.join(", ");
     if (cardPrice) cardPrice.innerText = "Price: LKR " + total.toFixed(2);
   }

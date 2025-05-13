@@ -4,7 +4,9 @@ import java.time.LocalTime;
 
 public class Bus {
 
-    private int busId = -1;  // Default value to indicate it's not set (auto-incremented)
+//    private int busId = -1;  
+    // Default value to indicate it's not set (auto-incremented)
+	 private int busId ;  
     private String busName;
     private String busType;
     private double pricePerSeat;

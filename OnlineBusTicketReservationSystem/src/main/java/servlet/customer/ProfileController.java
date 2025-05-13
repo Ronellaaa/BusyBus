@@ -14,6 +14,7 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
+import model.bus.Bus;
 import model.customer.*;
 import util.DBConnection;
 
@@ -73,26 +74,37 @@ public class ProfileController  extends HttpServlet{
 			// ✅ Fetch booked tickets with route + operator
 	            List<Booking> bookingList = new ArrayList<>();
 	            String bookingSql = """
-	                SELECT b.booking_id, b.travel_date, b.seats, b.bookingStatus,
-	                       r.start_location, r.end_location, d.bus_name
+	                SELECT b.booking_id, b.journeyDate, b.seats, b.bookingStatus,
+	                       r.busRouteName, d.bus_name,d.bus_type
 	                FROM bookings b
 	                JOIN busDetails d ON b.bus_id = d.bus_id
-	                JOIN BusRoute r ON d.busRouteId = r.busRouteId
-	                WHERE b.customer_id = ?
+	                JOIN busRouteAssignment a ON b.bus_id = a.bus_id
+	                 JOIN BusRoute r ON a.route_id = r.busRouteId
+	                WHERE b.cust_id = ?
 	            """;
+	            
 
 	            PreparedStatement bookStmt = conn.prepareStatement(bookingSql);
 	            bookStmt.setInt(1, customerId);
 	            ResultSet bookingRs = bookStmt.executeQuery();
+	           
+			  
 
 	            while (bookingRs.next()) {
 	                Booking b = new Booking();
+	                Bus bus = new Bus();
+	                
 	                b.setBookingId(bookingRs.getInt("booking_id"));
-	                b.setTravelDate(bookingRs.getString("travel_date"));
+	                b.setJourneyDate(bookingRs.getString("journeyDate"));
 	                b.setSeats(bookingRs.getString("seats"));
 	                b.setBookingStatus(bookingRs.getString("bookingStatus"));
-	                b.setStartLocation(bookingRs.getString("start_location"));
-	                b.setEndLocation(bookingRs.getString("end_location"));
+	                b.setBusRouteName(bookingRs.getString("busRouteName"));
+	                bus.setBusName(bookingRs.getString("bus_name"));
+					bus.setBusType(bookingRs.getString("bus_type"));
+				    b.setBus(bus);
+					   
+					  
+	             
 	              
 	                bookingList.add(b);
 	            }

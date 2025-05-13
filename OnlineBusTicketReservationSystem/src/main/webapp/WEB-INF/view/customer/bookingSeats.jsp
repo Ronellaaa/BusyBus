@@ -16,10 +16,16 @@
     }
 %>
 
-<%
-    String routeStart = (String) request.getAttribute("routeStart");
-    String routeEnd = (String) request.getAttribute("routeEnd");
+ <%
+    String routeName = (String) request.getAttribute("routeName");
     String busName = (String) request.getAttribute("busName");
+    Double pricePerSeat = null;
+    Object priceObj = request.getAttribute("pricePerSeat");
+    if (priceObj instanceof Double) {
+        pricePerSeat = (Double) priceObj;
+    } else if (priceObj != null) {
+        pricePerSeat = Double.parseDouble(priceObj.toString());
+    }
 %>
 
 <!DOCTYPE html>
@@ -104,16 +110,37 @@
 
             <label>Email</label>
             <input type="email" name="email" value="<%= email %>" readonly />
+     <div class="seat-type-row">
+  <label><input type="radio" name="seatType" value="Adult" checked /> Adult</label>
+  <label><input type="radio" name="seatType" value="Child" /> Child</label>
+</div>
+
+<!-- ✅ New: Number of Seats -->
+<!-- <div class="seat-count"> -->
+  <label for="seatCount">How many seats?</label>
+ <input type="text" name="seatCount" id="seatCountInput" />
+<!-- </div> -->
+           
 
             <p>Selected Seats: <span id="selectedSeatsText">None</span></p>
             <p>Total Price: <span id="totalPrice">0 LKR</span></p>
+            
+            <input type="hidden" name="customerId" value="<%= session.getAttribute("customer_id") %>" />
+            <input type="hidden" name="busId" value="<%= request.getAttribute("busId") %>" />
+           <input type="date" name="journeyDate" value="<%= request.getAttribute("journeyDate") %>" />
 
-            <input type="hidden" name="seats" id="seatInput" required />
-            <input type="hidden" name="totalPrice" id="priceInput" required />
-            <input type="hidden" name="bookingStatus" value="Pending" />
-            <input type="hidden" name="paymentStatus" value="Pending" />
+  <!-- ✅ Required for booking -->
+  <input type="hidden" name="seats" id="seatInput" required />
+  <input type="hidden" name="totalPrice" id="priceInput" required />
+<!-- Hidden inputs that JS will update -->
+<input type="hidden" name="seatType" id="seatTypeInput" />
+<!-- <input type="hidden" name="seatCount" id="seatCountInput" /> -->
 
-            <button type="submit">Proceed to Checkout</button>
+
+           
+            <button type="submit" class="check">Proceed to Checkout</button>
+          
+
           </div>
         </form>
 
@@ -129,10 +156,11 @@
             <div class="card__type">Bus Ticket</div>
             <div class="card__number">
              <span class="card__digit-group">Passenger: <%= name %></span>
-             <span class="card__digit-group">Route: <%= routeStart %> → <%= routeEnd %></span>
+             <span class="card__digit-group">Route: <%=routeName %></span>
              <span class="card__digit-group">Operator: <%= busName %></span>
-            <span class="card__digit-group" id="cardSeats">Seats: -</span>
-             <span class="card__digit-group" id="cardPrice">Price: -</span>
+            <span class="card__digit-group" id="cardSeats">Seats: </span><br>
+            <span class="card__digit-group" id="cardPrice">Price: -</span>
+
             </div>
           </div>
           <div class="card__texture"></div>
@@ -164,10 +192,15 @@
         <% for (int i = 0; i < bookedSeats.size(); i++) {
              out.print("\"" + bookedSeats.get(i).split("-")[0].trim() + "\"");
              if (i < bookedSeats.size() - 1) out.print(", ");
+
            }
         %>
       ];
+      console.log("Booked:", bookedSeats);
+      window.pricePerSeat = <%= pricePerSeat != null ? pricePerSeat : 1000 %>;
+      window.totalSeats = <%= request.getAttribute("totalSeats") != null ? request.getAttribute("totalSeats") : 50 %>;
     </script>
+   
 
     <!-- === JS Libraries === -->
     <script src="js/customer/booking.js"></script>

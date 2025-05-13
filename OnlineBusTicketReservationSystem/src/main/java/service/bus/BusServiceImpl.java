@@ -260,7 +260,9 @@ public class BusServiceImpl implements IBusService {
                    b.departure_time, b.arrival_time, b.seats_available, b.is_active,
                    r.busRouteName
             FROM busDetails b
-            LEFT JOIN BusRoute r ON b.bus_id = r.busRouteId;
+            LEFT JOIN busRouteAssignment a ON b.bus_id = a.bus_id
+            LEFT JOIN BusRoute r ON r.busRouteId = a.route_id;
+            
             """;
 
         ArrayList<Bus> busList = new ArrayList<>();

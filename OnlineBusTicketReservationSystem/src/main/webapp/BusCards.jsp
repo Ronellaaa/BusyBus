@@ -12,6 +12,8 @@
 	href="${pageContext.request.contextPath}/styles/bus/BusCards.css" />
 </head>
 <body>
+<jsp:include page="/Navbar.jsp"/>
+
 	<div class="bus-card-page">
 
 		<!-- Error message (if any) -->
@@ -59,10 +61,15 @@
 					<div class="bus-card-actions">
 						<c:choose>
 							<c:when test="${bus.active and bus.seatsAvailable > 0}">
-								<form action="BookingServlet" method="post" class="inline-form">
-									<input type="hidden" name="bus_id" value="${bus.busId}" />
-									<button type="submit" class="action-button book-btn">Book Now</button>
-								</form>
+								<!-- <form action="book-seat" method="post" class="inline-form"> -->
+								
+									<input type="hidden" name="bus_id" value="1" />
+								<!-- 	<button type="submit" class="action-button book-btn">Book Now</button> -->
+									 <a href="book-seat?bus_id=${bus.busId}">
+                                  <button class="action-button book-btn">Book Now</button>
+                                    </a>
+								
+							<!-- 	</form> -->
 							</c:when>
 							<c:otherwise>
 								<button class="action-button book-btn disabled" disabled>Currently Unavailable</button>
