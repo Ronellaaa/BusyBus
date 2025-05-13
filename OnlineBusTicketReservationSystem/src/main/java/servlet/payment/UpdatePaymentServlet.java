@@ -93,18 +93,18 @@ public class UpdatePaymentServlet extends HttpServlet {
 		            
 		            // Redirect to the referring page
 		            String referer = request.getHeader("referer");
-		            response.sendRedirect(referer != null ? referer : request.getContextPath() + "/WEB-INF/view/payment/PaymentTable.jsp");
+		            response.sendRedirect(referer != null ? referer : request.getContextPath() + "/getPaymentTableServlet");
 		           
 		            //When creating the Map if the errors are encountered
 		        } catch (NumberFormatException e) {
 		            HttpSession session = request.getSession();
 		            session.setAttribute("notificationMsg", "Invalid payment ID format");
-		            response.sendRedirect(request.getContextPath() + "/WEB-INF/view/payment/PaymentTable.jsp");
+		            response.sendRedirect(request.getContextPath() + "/getPaymentTableServlet");
 		            
 		        } catch (Exception e) {
 		            HttpSession session = request.getSession();
 		            session.setAttribute("notificationMsg", "Error updating payment: " + e.getMessage());
-		            response.sendRedirect(request.getContextPath() + "/WEB-INF/view/payment/PaymentTable.jsp");
+		            response.sendRedirect(request.getContextPath() + "/getPaymentTableServlet");
 		        }
 		    }
 		}

@@ -39,6 +39,18 @@
 		<div class="nav fai"><li><a href="getPayServlet?type=failed">Failed</a></li></div>
 		<div class="nav ref"><li><a href="getPayServlet?type=refunded">Refunded</a></li></div>
 		<div class="nav arc"><li><a href="getArchivedPaymentsServlet">Archives</a></li></div>
+		
+		<div class="nav log">
+<li>
+
+        <a href="BopLogoutServlet" class="logout-link">
+            <button class="logout-btn">
+                <i class="fas fa-sign-out-alt"></i> Logout
+            </button>
+        </a>
+
+</li>
+</div>
 	</ul>
 </div>
 

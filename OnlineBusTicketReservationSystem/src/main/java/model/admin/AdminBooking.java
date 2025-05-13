@@ -4,9 +4,8 @@ import java.time.LocalDate;
 public class AdminBooking {
 	
 	private int bookingId;
-	private LocalDate bookingDate;
 	private LocalDate journeyDate;
-	private String seatNumber;
+	private String seats;
 	private String seatType;
 	private String bookingStatus;
 	private double totalPrice;
@@ -22,23 +21,18 @@ public class AdminBooking {
 	public void setBookingId(int bookingId) {
 		this.bookingId = bookingId;
 	}
-	public LocalDate getBookingDate() {
-		return bookingDate;
-	}
-	public void setBookingDate(LocalDate bookingDate) {
-		this.bookingDate = bookingDate;
-	}
+	
 	public LocalDate getJourneyDate() {
 		return journeyDate;
 	}
 	public void setJourneyDate(LocalDate journeyDate) {
 		this.journeyDate = journeyDate;
 	}
-	public String getSeatNumber() {
-		return seatNumber;
+	public String getSeats() {
+		return seats;
 	}
-	public void setSeatNumber(String seatNumber) {
-		this.seatNumber = seatNumber;
+	public void setSeats(String seats) {
+		this.seats = seats;
 	}
 	public String getSeatType() {
 		return seatType;

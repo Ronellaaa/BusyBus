@@ -35,7 +35,7 @@ public class ProfileController  extends HttpServlet{
 				Object custObj = session != null ? session.getAttribute("customer_id") : null;
 
 				if (custObj == null) {
-					res.sendRedirect("login.jsp");
+					res.sendRedirect("/WEB-INF/view/customer/SignUp.jsp");
 					return;
 				}
 

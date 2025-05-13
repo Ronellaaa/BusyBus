@@ -20,10 +20,10 @@
         <nav>
           <ul>
             <li>
-              <a href="<%=request.getContextPath()%>/Hompage.jsp" class="link"> Home </a>
-              <a href="/about" class="link"> About Us </a>
-              <a href="/menu" class="link"> Products </a>
-              <a href="/contact" class="link"> Contact Us </a>
+              <a href="<%= request.getContextPath() %>/Homepage.jsp" class="link">Home</a>
+            <a href="<%= request.getContextPath() %>/AboutUs.jsp" class="link">About Us</a>
+              <a href="BusCardsServlet" class="link"> Journeys </a>
+               <a href="<%= request.getContextPath() %>/contactUs.jsp" class="link">Contact Us</a>
             </li>
           </ul>
         </nav>
@@ -34,7 +34,7 @@
                 <i class="fa-solid fa-user"></i> Profile
             </button>
         </a>
-        <a href="LogoutServlet">
+        <a href="BopLogoutServlet">
             <button class="btn-login6">
                 Logout
             </button>

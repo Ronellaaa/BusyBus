@@ -42,7 +42,7 @@ public class AdminDashboardController extends HttpServlet {
 		String displayTicketsQuery = "SELECT CONCAT(c.first_Name, ' ', c.last_Name) AS fullName, " +
 			    "b.bus_name, b.bus_type, r.busRouteName, " +
 			    "bo.journeyDate, a.assignment_id, " + 
-			    "GROUP_CONCAT(bo.seatNumber ORDER BY bo.seatNumber ASC) AS seatNumbers, " +
+			    "GROUP_CONCAT(bo.seats ORDER BY bo.seats ASC) AS seatNumbers, " +
 			    "SUM(bo.totalPrice) AS totalAmount, " + 
 			    "MAX(p.payment_date) AS paymentDate " +  
 			    "FROM customers c " +
@@ -78,7 +78,7 @@ public class AdminDashboardController extends HttpServlet {
 		        dashboard.setBus(bus);
 		        
 				AdminBooking booking = new AdminBooking ();
-				booking.setSeatNumber(rs.getString("seatNumbers"));
+				booking.setSeats(rs.getString("seatNumbers"));
 				booking.setTotalPrice(rs.getDouble("totalAmount"));
 				booking.setJourneyDate(rs.getObject("journeyDate", LocalDate.class));
 				dashboard.setBooking(booking);	

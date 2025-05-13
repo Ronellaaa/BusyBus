@@ -20,6 +20,16 @@
   
   <jsp:include page="/Navbar.jsp"/>
   
+  <!-- Alert on login error -->
+<% String loginError = (String) request.getAttribute("loginError"); %>
+<% if (loginError != null) { %>
+  <script>
+    alert("<%= loginError.replace("\"", "\\\"") %>");
+  </script>
+<% } %>
+
+  
+  
   <div class="leaf">
      <div>  <img src="http://www.pngmart.com/files/1/Fall-Autumn-Leaves-Transparent-PNG.png" height="75px" width="75px"/></div>
       <div><img src="http://www.pngmart.com/files/1/Autumn-Fall-Leaves-Pictures-Collage-PNG.png" height="75px" width="75px"></img></div>
@@ -59,6 +69,9 @@
   
     <br>
 <br>
+
+
+
     <div class="cont">
      <form action="login" method="POST" >
         <div class="log sign-in">
@@ -71,8 +84,20 @@
                 <span>Password</span>
                <input type="password" id="password" name="password" placeholder="Password" required />
             </label>
-
-            <p class="forgot-pass">Forgot password?</p>
+<!-- 
+         <p class="forgot-pass">Forgot password?</p> -->
+    <div class="role-wrapper">
+  <label for="role">
+    <span>Role</span>
+  </label>
+  <select name="role" class="styled-select" required>
+    <option value="customer">Customer</option>
+    <option value="admin">Admin</option>
+    <option value="operator">Bus Operator</option>
+    <option value="financer">Payment Financer</option>
+  </select>
+</div>
+  
          <button type="submit" class="submit b1">Login</button>
          
         </div>

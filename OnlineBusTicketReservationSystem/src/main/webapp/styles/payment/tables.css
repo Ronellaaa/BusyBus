@@ -460,6 +460,49 @@ select {
     box-shadow: none;
     top: 5px;
 }
+
+
+.logout-link {
+            text-decoration: none; /* Remove underline */
+            display: inline-block;
+        }
+
+        .logout-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, #ff6b6b, #ff8e8e);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            margin-top:0;
+            top:0;
+            border-radius: 25px;
+            font-family: 'Arial', sans-serif;
+            font-weight: 600;
+            font-size: 14px;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(255, 107, 107, 0.3);
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            
+        }
+
+        .logout-btn:hover {
+            background: linear-gradient(135deg, #ff5252, #ff7676);
+            box-shadow: 0 6px 20px rgba(255, 107, 107, 0.4);
+            transform: translateY(-2px);
+        }
+
+        .logout-btn:active {
+            transform: translateY(0);
+        }
+
+        .logout-btn i {
+            margin-right: 8px;
+            font-size: 16px;
+        }
   
 
   

@@ -29,6 +29,11 @@
   </head>
   <body>
   <jsp:include page="/Navbar.jsp" />
+  <div style="margin: 20px;">
+<!-- <a href="BopDashboardServlet"> -->
+    <button onclick="history.back()" class="back-button">← Back</button>
+   <!--  </a> -->
+</div>
     <div class="background">
       <div class="shape"></div>
       <div class="shape"></div>

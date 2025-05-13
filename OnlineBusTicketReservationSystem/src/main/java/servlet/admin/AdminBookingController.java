@@ -27,7 +27,7 @@ public class AdminBookingController extends HttpServlet  {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		try {
 			
-			String sqlQuery = "SELECT CONCAT(c.first_Name, ' ', c.last_Name) AS fullName, c.phoneNumber,b.booking_id,b.bookingDate,b.journeyDate,b.seatNumber,b.seatType,bus.bus_type,b.noSeats,b.totalPrice,b.bookingStatus FROM customers c INNER JOIN bookings b ON c.cust_id = b.cust_id INNER JOIN busDetails bus ON b.bus_id = bus.bus_id";
+			String sqlQuery = "SELECT CONCAT(c.first_Name, ' ', c.last_Name) AS fullName, c.phoneNumber,b.booking_id,b.journeyDate,b.seats,b.seatType,bus.bus_type,b.noSeats,b.totalPrice,b.bookingStatus FROM customers c INNER JOIN bookings b ON c.cust_id = b.cust_id INNER JOIN busDetails bus ON b.bus_id = bus.bus_id";
 					
 			Connection conn = DBConnection.getInstance().getConnection();
 			PreparedStatement stmt = conn.prepareStatement(sqlQuery);
@@ -40,9 +40,8 @@ public class AdminBookingController extends HttpServlet  {
 				AdminBooking booking = new AdminBooking();
 				
 				booking.setBookingId(rs.getInt("booking_id"));
-				booking.setBookingDate(rs.getObject("bookingDate", LocalDate.class));
 				booking.setJourneyDate(rs.getObject("journeyDate", LocalDate.class));
-				booking.setSeatNumber(rs.getString("seatNumber"));
+				booking.setSeats(rs.getString("seats"));
 				booking.setSeatType(rs.getString("seatType"));
 			    booking.setBookingStatus(rs.getString("bookingStatus"));
 				booking.setNoSeats(rs.getInt("noSeats"));

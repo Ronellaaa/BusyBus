@@ -51,8 +51,11 @@
             <h2>Fast, Easy, Bookings</h2>
           <!-- <form action="book-seat" method="get">
              <input type="hidden" name="busId" value="1" /> -->
-             <a href="BusCardsServlet">
-             <button type="submit"  class="cta-button">Book Your seat <%= session.getAttribute("name") %>!</button>
+             <a href="BusCardsServlet" class="hrefa">
+             <button type="submit" class="cta-button">
+  Book your seat <%= (session.getAttribute("name") != null) ? session.getAttribute("name") : "" %>!
+</button>
+           <%--   <button type="submit"  class="cta-button">Book Your seat <%= session.getAttribute("name") %>!</button> --%>
              </a>
            <!--  </form> -->
             <div class="search-wrapper">
@@ -225,7 +228,7 @@
         </div>
 
         <!-- 🔸 Overlay Content -->
-        <h2 class="section-title">Why Choose BusExpress?</h2>
+        <h2 class="section-title">Why Choose BusyBus?</h2>
         <p class="section-description">
           Experience Sri Lanka like never before. Discover hidden gems across
           the island with the most convenient, affordable, and culturally
@@ -255,11 +258,12 @@
             <p>Book in seconds. Get digital tickets directly to your device.</p>
           </div>
         </div>
-        <form action="book-seat" method="get">
-         <input type="hidden" name="busId" value="1" />
-        <button  class="cta-button">Start Your Journey</button>
-        
-     </form>
+      <a href="BusCardsServlet" class="hrefa">
+             <button type="submit" class="cta-button">
+  Start your Journey<%= (session.getAttribute("name") != null) ? session.getAttribute("name") : "" %>!
+</button>
+           <%--   <button type="submit"  class="cta-button">Book Your seat <%= session.getAttribute("name") %>!</button> --%>
+             </a>
       </section>
     </div>
 

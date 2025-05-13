@@ -23,17 +23,18 @@ import service.bus.BusServiceImpl;
 import service.bus.IBusService;
 
 @WebServlet("/book-seat")
-public class BookingController  extends HttpServlet{
+public class BookingController  extends AuthenticatedServlet{
 	
-	   @Override
+	   private static final long serialVersionUID = 1L;
+
+	@Override
 	    protected void doGet(HttpServletRequest request, HttpServletResponse response)
 	            throws ServletException, IOException {
 		   
-		   HttpSession session = request.getSession(false); 
-		    if (session == null || session.getAttribute("name") == null) {
-		        response.sendRedirect("login.jsp"); 
-		        return;
-		    }
+		   if (!isLoggedIn(request)) {
+	            redirectToLogin(request, response);
+	            return;
+	        }
 
 		   
 		    

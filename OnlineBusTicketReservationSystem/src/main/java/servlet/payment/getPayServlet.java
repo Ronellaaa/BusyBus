@@ -84,7 +84,7 @@ public class getPayServlet extends HttpServlet {
 		
 		//If the type = "all"
 		else if("all".equals(type)) {
-			response.sendRedirect(request.getContextPath() + "/WEB-INF/view/payment/PaymentTable.jsp"); //Redirect to show all payments
+			response.sendRedirect(request.getContextPath() + "/getPaymentTableServlet"); //Redirect to show all payments
 		}
 	
 	}

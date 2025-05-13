@@ -146,3 +146,25 @@ body {
         border-radius: 50%;
         z-index: -1;
       }
+      
+      
+      
+
+.back-button {
+	position:relative;
+  background-color: #333;
+  color: #fff;
+  border: none;
+  padding: 10px 16px;
+  font-size: 14px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+ top:-290px; 
+ left:-500px;
+}
+
+.back-button:hover {
+  background-color: #555;
+}
+      

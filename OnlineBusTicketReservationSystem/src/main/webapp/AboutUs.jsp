@@ -3,10 +3,11 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>About Us - BusExpress</title>
+    <title>About Us - BusyBus</title>
     <link rel="stylesheet" href="styles/bus/AboutUs.css">
 </head>
 <body>
+<jsp:include page="/Navbar.jsp" />
     <div class="about-container">
         <h1>About BusExpress</h1>
         <p>

@@ -447,5 +447,37 @@ display:block ;
     transform: rotateX(180deg);
 }
 
+.role-wrapper {
+  width: 100%;
+  text-align: center;
+  margin-top: 25px;
+}
 
+.role-wrapper label span {
+  font-size: 17px;
+  color: black;
+  text-transform: uppercase;
+  display: block;
+  margin-bottom: 8px;
+}
 
+.styled-select {
+  width: 20%;
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid rgba(0, 0, 0, 0.3);
+  border-radius: 10px;
+  background-color: #fff8f0;
+  color: #333;
+  text-align: center;
+  box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.1);
+  transition: border-color 0.3s ease;
+  margin: 0 auto;
+  display: block;
+}
+
+.styled-select:focus {
+  outline: none;
+  border-color: #ff7043;
+  box-shadow: 0 0 5px rgba(255, 110, 50, 0.5);
+}

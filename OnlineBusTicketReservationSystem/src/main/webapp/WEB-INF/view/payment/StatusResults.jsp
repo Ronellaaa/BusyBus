@@ -70,6 +70,18 @@
 	<div class="nav fai"><li><a href="getPayServlet?type=failed">Failed</a></li></div>
 	<div class="nav ref"><li><a href="getPayServlet?type=refunded">Refunded</a></li></div>
 	<div class="nav arc"><li><a href="getArchivedPaymentsServlet">Archives</a></li></div>
+	
+	<div class="nav log">
+<li>
+
+        <a href="BopLogoutServlet" class="logout-link">
+            <button class="logout-btn">
+                <i class="fas fa-sign-out-alt"></i> Logout
+            </button>
+        </a>
+
+</li>
+</div>
 </ul>
 </div><br>
 
@@ -113,7 +125,7 @@
                             <i class='bx bxs-edit-alt' ></i>
                         </button>
                         
-                        <form method="POST" action="../DeletePaymentServlet" style="display: inline;">
+                        <form method="POST" action="DeletePaymentServlet" style="display: inline;">
                             <input type="hidden" name="paymentID" value="<%=payment.getPaymentId()%>"/>
                             <button type="submit" class="btn btn-sm btn-danger" id="transbtn"><i class='bx bx-archive-in' ></i></button>
                         </form>

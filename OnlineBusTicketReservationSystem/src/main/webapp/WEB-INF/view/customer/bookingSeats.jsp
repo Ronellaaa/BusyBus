@@ -55,7 +55,7 @@
   
   
   <jsp:include page="/Navbar.jsp"/>
-  
+   
   
     <!-- === HEADER SECTION === -->
    <div class="bokeh">
@@ -64,15 +64,17 @@
         <div class="ag-maecenas_title">
           <marquee direction="left">
             <div class="ag-format-container">
-              <h4 class="glow ag-format-container">EXPRESS</h4>
+              <h4 class="glow ag-format-container">Busy Bus</h4>
             </div>
           </marquee>
         </div>
+        
         <div class="ag-format-container">
           <section class="ag-maecenas_box">Hop On! Select Your Seat Below</section>
         </div>
       </div>
     </div>
+
     
      <div class="bookcuss">
 
@@ -100,7 +102,7 @@
           <div class="brand-logo">
             <img src="${pageContext.request.contextPath}/assets/logo.png" alt="Logo" />
           </div>
-          <div class="brand-title">EXPRESS</div>
+          <div class="brand-title">Busy Bus</div>
           <div class="inputs">
             <label>Name</label>
             <input type="text" name="name" value="<%= name %>" readonly />
