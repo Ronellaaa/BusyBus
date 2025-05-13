@@ -86,7 +86,7 @@ window.addEventListener("DOMContentLoaded", () => {
 	const seatCountInput = document.getElementById("seatCountInput");
 	  seatCountInput.value = seatNumbersOnly.length;
 
-	document.getElementById("seatTypeInput").value = seatTypeLabel;
+	//document.getElementById("seatTypeInput").value = seatTypeLabel;
 	
     if (cardSeats) cardSeats.innerText = "Seats: " + seatNumbersOnly.join(", ");
     if (cardPrice) cardPrice.innerText = "Price: LKR " + total.toFixed(2);
