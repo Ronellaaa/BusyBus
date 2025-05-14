@@ -90,7 +90,7 @@ public class BookingServiceImpl implements IBookingService  {
             preparedStatement.setInt(2, BookingID);
             
             preparedStatement.executeUpdate();
-            connection.commit(); // Commit transaction
+            //connection.commit(); // Commit transaction
             
 	 }
 	   //Catch the errors related to execution of queries.

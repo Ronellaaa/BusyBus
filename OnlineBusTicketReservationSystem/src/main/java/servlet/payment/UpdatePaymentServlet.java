@@ -92,8 +92,11 @@ public class UpdatePaymentServlet extends HttpServlet {
 		            }
 		            
 		            // Redirect to the referring page
-		            String referer = request.getHeader("referer");
-		            response.sendRedirect(referer != null ? referer : request.getContextPath() + "/getPaymentTableServlet");
+		            //String referer = request.getHeader("referer");
+		            //response.sendRedirect(referer != null ? referer : request.getContextPath() + "/getPaymentTableServlet");
+		            		            
+		            RequestDispatcher dispatcher = request.getRequestDispatcher("/getPaymentTableServlet");
+					dispatcher.forward(request, response);
 		           
 		            //When creating the Map if the errors are encountered
 		        } catch (NumberFormatException e) {
